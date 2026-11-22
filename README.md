@@ -58,6 +58,9 @@ npm test
 
 ## Veröffentlichen (Cloudflare Workers)
 
+Jeder Push auf `main` wird automatisch veröffentlicht (Cloudflare Workers Builds, Befehl `npx wrangler deploy`).
+Einmalige Einrichtung für einen eigenen Fork:
+
 ```bash
 npx wrangler login
 npx wrangler d1 create selbstbild --jurisdiction=eu   # database_id in wrangler.jsonc eintragen

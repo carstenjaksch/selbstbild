@@ -60,8 +60,13 @@ npm test                 # Krypto + Worker (node:test)
 npm run db:local         # Schema in lokale D1
 npm run dev              # wrangler dev, http://localhost:8787
 npm run db:remote        # Schema in die echte D1
-npm run deploy           # wrangler deploy
+npm run deploy           # wrangler deploy (nur nötig, wenn Workers Builds ausfällt)
 ```
+
+**Deploy:** Workers Builds ist mit `carstenjaksch/selbstbild` verbunden (Cloudflare-GitHub-App nur für dieses
+Repo). Jeder Push auf `main` baut und veröffentlicht (`npx wrangler deploy`, kein Build-Befehl), Vorschau-Builds
+für andere Branches sind aus. Schema-Änderungen an D1 laufen nicht automatisch mit: vorher `npm run db:remote`
+(bzw. eine Migration) ausführen. Build-Status: Cloudflare-Dashboard → Worker `selbstbild` → Bereitstellungen.
 
 ## Prüfen (vor jedem Deploy)
 
