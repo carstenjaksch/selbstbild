@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Selbstbild – Diagnosekriterien &amp; Selbsttests</title>
+<meta name="description" content="Selbsteinschätzung zu ADHS, Autismus, AuDHS, Depression, bipolaren Störungen, Migräne und mehr: Kriterien nach ICD und DSM, Checklisten und Kurztests. Keine Diagnose.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/style.css">
+<script type="module" src="/js/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Selbstbild · Selbsteinschätzung · Stand November 2026</p>
+    <h1>Diagnosekriterien &amp; Selbsttests</h1>
+    <p class="lead">Merkmale zum Abhaken, Kriterien nach ICD-10-GM, ICD-11 und DSM-5-TR (sinngemäß zusammengefasst) und standardisierte Kurztests für <span id="lead-liste">ADHS, Autismus, AuDHS, depressive Störungen, bipolare Störungen und Migräne</span>.</p>
+    <div class="notice" role="note">
+      <p><strong>Keine Diagnose.</strong> Selbsttests zeigen, ob sich eine fachliche Abklärung lohnt. Viele Merkmale überschneiden sich zwischen den Störungsbildern und kommen auch bei Schlafmangel, Stress, Angst, Trauma oder körperlichen Ursachen vor (z.&nbsp;B. Schilddrüse, Eisenmangel). Diagnosen stellen Fachärztinnen, Fachärzte und Psychotherapeut:innen nach Gespräch, Vorgeschichte und Ausschluss anderer Ursachen.</p>
+      <p><strong>Speichern:</strong> Deine Antworten liegen sofort in diesem Browser. Mit deiner Zustimmung zusätzlich verschlüsselt bei Cloudflare mit Rechenzentrum in der EU, abrufbar nur über deinen persönlichen Link. Nach 24 Monaten ohne Änderung wird der Stand dort gelöscht. Mehr am farbigen Punkt rechts in der Leiste.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Bereiche">
+  <div class="wrap navbar">
+    <div class="tablist">
+      <a href="/">Übersicht</a>
+      <a href="/adhs" data-area="adhs"><span class="dot" data-dot="adhs"></span>ADHS</a>
+      <a href="/autismus" data-area="autismus"><span class="dot" data-dot="autismus"></span>Autismus</a>
+      <a href="/audhs" data-area="audhs"><span class="dot" data-dot="audhs"></span>AuDHS</a>
+      <a href="/depression" data-area="depression"><span class="dot" data-dot="depression"></span>Depression</a>
+      <a href="/bipolar" data-area="bipolar"><span class="dot" data-dot="bipolar"></span>Bipolar</a>
+      <a href="/abgrenzung" data-area="abgrenzung"><span class="dot" data-dot="abgrenzung"></span>Stimmung: Abgrenzung</a>
+      <a href="/alexithymie" data-area="alexithymie"><span class="dot" data-dot="alexithymie"></span>Alexithymie</a>
+      <a href="/ataxie" data-area="ataxie"><span class="dot" data-dot="ataxie"></span>Ataxie Typ 2</a>
+      <a href="/migraene" data-area="migraene"><span class="dot" data-dot="migraene"></span>Migräne</a>
+      <a href="/dyskalkulie" data-area="dyskalkulie"><span class="dot" data-dot="dyskalkulie"></span>Dyskalkulie</a>
+      <a href="/dyspraxie" data-area="dyspraxie"><span class="dot" data-dot="dyspraxie"></span>Dyspraxie</a>
+      <a href="/dysarthrie" data-area="dysarthrie"><span class="dot" data-dot="dysarthrie"></span>Dysarthrie</a>
+      <a href="/tests">Alle Tests</a>
+    </div>
+    <div class="speicher" id="speicher">
+      <button type="button" class="sp-btn" id="sp-btn" aria-expanded="false" aria-controls="sp-pop" aria-label="Speicherstatus anzeigen">
+        <span class="sp-dot" data-ort="leer" aria-hidden="true"></span><span class="sp-label" id="sp-label">Nicht gespeichert</span>
+      </button>
+      <div class="sp-pop" id="sp-pop" role="dialog" aria-labelledby="sp-titel" hidden></div>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="inhalt">
+
+<!-- ============ ÜBERSICHT ============ -->
+<section class="view" id="uebersicht" aria-labelledby="h-uebersicht">
+  <h2 id="h-uebersicht">Übersicht</h2>
+  <div class="filter" role="search">
+    <label for="filter">Bereiche filtern</label>
+    <input type="search" id="filter" placeholder="z. B. Schlaf, Kopfschmerz oder F90" autocomplete="off" spellcheck="false">
+    <p class="fine" id="filter-info" aria-live="polite"></p>
+  </div>
+  <p class="fine">Hake Bereiche ab, die dich nicht betreffen. Sie verschwinden dann aus der Navigation und dem Gesamtbild und liegen unter „Ausgeblendet“, wo du sie jederzeit wieder einblenden kannst.</p>
+  <p class="sr-only" id="griff-hilfe">Mit den Pfeiltasten verschiebst du die Kachel. Mit Maus oder Finger kannst du sie am Griff ziehen.</p>
+  <div class="tiles" id="tiles"></div>
+  <details class="ausgeblendet" id="ausgeblendet">
+    <summary>Ausgeblendet <span id="ausgeblendet-n"></span></summary>
+    <div class="tiles" id="tiles-aus"></div>
+  </details>
+  <div class="card" id="gesamt-table"></div>
+  <div class="card">
+    <h3>Welche Klassifikation gilt?</h3>
+    <p>In Deutschland wird für Diagnosen und Abrechnung weiterhin die <strong>ICD-10-GM</strong> verwendet. Die <strong>ICD-11</strong> gilt international seit 2022; eine deutsche Übersetzung liegt vor, ein verbindlicher Einführungstermin steht aber noch aus. Die Fachdiagnostik orientiert sich zusätzlich am US-amerikanischen <strong>DSM-5-TR</strong> (2022). Die Kriterien auf dieser Seite sind sinngemäß zusammengefasst, nicht wörtlich zitiert.</p>
+  </div>
+</section>
+
+<!-- ============ ADHS ============ -->
+<section class="view" id="adhs" aria-labelledby="h-adhs">
+  <div>
+    <h2 id="h-adhs">ADHS</h2>
+    <p class="sub">Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>F90.0, F90.1, F98.80</span>
+    <span class="code"><b>ICD-11</b>6A05</span>
+    <span class="code"><b>DSM-5-TR</b>ADHS, drei Erscheinungsbilder</span>
+  </div>
+  <p class="prose">Neurologische Entwicklungsstörung mit einem dauerhaften Muster aus Unaufmerksamkeit und/oder Hyperaktivität-Impulsivität, das seit der Kindheit besteht. Bei Erwachsenen verlagert sich die Hyperaktivität häufig in innere Unruhe; im Vordergrund stehen dann Organisation, Zeitgefühl und Emotionsregulation.</p>
+  <div class="card key">
+    <h3>Kriterien in Kürze</h3>
+    <ul class="plain">
+      <li><strong>Symptome:</strong> mindestens 5 Merkmale (ab 17 Jahren; Kinder: 6) aus Unaufmerksamkeit <em>und/oder</em> aus Hyperaktivität-Impulsivität, seit mindestens 6 Monaten, unangemessen für den Entwicklungsstand.</li>
+      <li><strong>Rahmen:</strong> mehrere Merkmale schon vor dem 12. Lebensjahr, in mindestens zwei Lebensbereichen, mit deutlicher Beeinträchtigung, nicht besser durch eine andere Störung erklärbar.</li>
+      <li><strong>Erscheinungsbilder:</strong> vorwiegend unaufmerksam, vorwiegend hyperaktiv-impulsiv oder kombiniert. Die ICD-11 übernimmt diese Einteilung.</li>
+      <li><strong>ICD-10-GM ist strenger:</strong> Die „Hyperkinetische Störung“ verlangt Merkmale aus allen drei Bereichen (Unaufmerksamkeit, Überaktivität, Impulsivität). ADHS ohne Hyperaktivität wird in der Praxis als F98.80 kodiert.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="group" data-group="adhs-a1"></div>
+    <div class="group" data-group="adhs-a2"></div>
+  </div>
+  <div class="group" data-group="adhs-rahmen"></div>
+  <div class="result" data-result="adhs"></div>
+  <div class="group" data-group="adhs-zusatz"></div>
+  <div class="card" data-extern="adhs"></div>
+  <div class="result gesamt" data-gesamt="adhs"></div>
+  <div class="card">
+    <h3>So läuft die Diagnostik</h3>
+    <p class="prose">Fachärzt:innen für Psychiatrie oder ADHS-Spezialambulanzen. Ausführliches Gespräch über Kindheit und heute (Grundschulzeugnisse mit Verhaltensbemerkungen helfen), Angaben von Eltern oder Partner:in, strukturiertes Interview (z.&nbsp;B. DIVA-5), Fragebögen (z.&nbsp;B. CAARS, WURS-K für die Kindheit) und Ausschluss anderer Ursachen wie Schilddrüse, Schlafstörungen, Depression oder Angst.</p>
+  </div>
+</section>
+
+<!-- ============ AUTISMUS ============ -->
+<section class="view" id="autismus" aria-labelledby="h-aut">
+  <div>
+    <h2 id="h-aut">Autismus</h2>
+    <p class="sub">Autismus-Spektrum-Störung (ASS)</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>F84.0, F84.1, F84.5 (Asperger)</span>
+    <span class="code"><b>ICD-11</b>6A02</span>
+    <span class="code"><b>DSM-5-TR</b>Autismus-Spektrum-Störung, Unterstützungsbedarf Stufe 1–3</span>
+  </div>
+  <p class="prose">Neurologische Entwicklungsbesonderheit mit anhaltenden Unterschieden in sozialer Kommunikation sowie wiederholten, eingegrenzten Verhaltensweisen, Interessen oder Sinneswahrnehmungen. ICD-11 und DSM-5 fassen die früheren Unterformen (frühkindlicher Autismus, Asperger-Syndrom, atypischer Autismus) zu einem Spektrum zusammen.</p>
+  <div class="card key">
+    <h3>Kriterien in Kürze</h3>
+    <ul class="plain">
+      <li><strong>A · Soziale Kommunikation:</strong> Unterschiede in <em>allen drei</em> Bereichen – Wechselseitigkeit, nonverbale Kommunikation, Beziehungen – aktuell oder in der Vorgeschichte.</li>
+      <li><strong>B · Wiederholte Muster:</strong> mindestens <em>zwei von vier</em> – repetitive Bewegungen oder Sprache, Festhalten an Routinen, intensive eingegrenzte Interessen, sensorische Über- oder Unterempfindlichkeit.</li>
+      <li><strong>Rahmen:</strong> seit der frühen Entwicklung vorhanden (kann erst sichtbar werden, wenn die Anforderungen steigen, oder durch Anpassung verdeckt sein), deutliche Beeinträchtigung, nicht besser durch Intelligenzminderung erklärbar.</li>
+      <li>Auf dieser Seite gilt ein A- oder B-Bereich als <em>angedeutet</em>, sobald mindestens ein Beispiel zutrifft.</li>
+    </ul>
+  </div>
+  <h3>A · Soziale Kommunikation und Interaktion</h3>
+  <div class="stack">
+    <div class="group" data-group="aut-a1"></div>
+    <div class="group" data-group="aut-a2"></div>
+    <div class="group" data-group="aut-a3"></div>
+  </div>
+  <h3>B · Eingegrenzte, wiederholte Muster</h3>
+  <div class="stack">
+    <div class="group" data-group="aut-b1"></div>
+    <div class="group" data-group="aut-b2"></div>
+    <div class="group" data-group="aut-b3"></div>
+    <div class="group" data-group="aut-b4"></div>
+  </div>
+  <div class="group" data-group="aut-rahmen"></div>
+  <div class="result" data-result="autismus"></div>
+  <div class="group" data-group="aut-zusatz"></div>
+  <div class="card" data-extern="autismus"></div>
+  <div class="result gesamt" data-gesamt="autismus"></div>
+  <div class="card">
+    <h3>So läuft die Diagnostik</h3>
+    <p>Autismus-Ambulanzen oder spezialisierte Fachärzt:innen. Entwicklungsgeschichte (möglichst mit Angaben der Eltern), Beobachtungsverfahren ADOS-2, Interview ADI-R, Abgrenzung z.&nbsp;B. zu sozialer Angst, ADHS, Trauma oder Persönlichkeitsstörungen. Wartezeiten sind oft lang; eine frühe Anmeldung lohnt sich.</p>
+  </div>
+</section>
+
+<!-- ============ AuDHS ============ -->
+<section class="view" id="audhs" aria-labelledby="h-audhs">
+  <div>
+    <h2 id="h-audhs">AuDHS</h2>
+    <p class="sub">Autismus und ADHS gemeinsam (englisch AuDHD)</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>Keine eigene Diagnose</b>beide Codes werden gemeinsam vergeben</span>
+  </div>
+  <p class="prose">AuDHS bezeichnet das gemeinsame Vorliegen von Autismus und ADHS. Nach DSM-IV und ICD-10 schlossen sich beide Diagnosen formal aus; seit DSM-5 (2013) und in der ICD-11 dürfen sie gemeinsam vergeben werden. Die Kombination ist häufig: Ein großer Teil autistischer Menschen zeigt auch ADHS-Merkmale und umgekehrt, die Schätzungen schwanken je nach Studie stark.</p>
+  <div class="card key">
+    <h3>Kriterien</h3>
+    <p>Für AuDHS müssen die vollständigen Kriterien <strong>beider</strong> Diagnosen erfüllt sein. Fülle dafür die Reiter <a href="/adhs">ADHS</a> und <a href="/autismus">Autismus</a> aus. Die Liste unten beschreibt typische Wechselwirkungen; sie sind keine offiziellen Kriterien.</p>
+    <p>Die Schwellen der Einzeldiagnosen berücksichtigen nicht, dass sich die Merkmale gegenseitig überdecken können. Deshalb wertet dieser Reiter teilweise markierte Merkmale beider Bereiche als Hinweis mit.</p>
+  </div>
+  <div class="group" data-group="audhs-muster"></div>
+  <div class="result" data-result="audhs"></div>
+  <div class="card">
+    <h3>Warum die Kombination oft spät erkannt wird</h3>
+    <ul class="plain">
+      <li>Die Merkmale verdecken sich gegenseitig: Autistische Routinen bändigen ADHS-Chaos, ADHS-Spontaneität lässt autistische Kommunikationsunterschiede weniger auffallen.</li>
+      <li>Masking: Viele haben soziale Regeln bewusst gelernt und wirken nach außen angepasst, zahlen dafür aber mit Erschöpfung.</li>
+      <li>In der Selbsteinschätzung treffen autistische Merkmale deshalb oft nur „teilweise“ zu: Reizsuche schwächt das Bedürfnis nach Gleichförmigkeit, Spontaneität überdeckt Unsicherheit im Gespräch, wechselnde Interessen verdecken die Intensität einzelner Themen.</li>
+      <li>Häufig wird zuerst eine Diagnose gestellt; Merkmale, die sie nicht erklärt, werden der Persönlichkeit zugeschrieben.</li>
+      <li>Frauen und Mädchen werden in beiden Bereichen im Schnitt später diagnostiziert.</li>
+    </ul>
+  </div>
+  <div class="card key" id="kopfschmerzen">
+    <h3>Kopfschmerzen, Reizüberflutung und Neurodivergenz</h3>
+    <p class="prose">Kopfschmerzen, besonders Migräne, sind bei ADHS und Autismus häufiger als in der Allgemeinbevölkerung. Mehrere Faktoren können zusammenkommen und sich verstärken:</p>
+    <ul class="plain">
+      <li><strong>ADHS:</strong> Eine Metaanalyse fand ein etwa 1,3-fach erhöhtes Migränerisiko, eine große Studie bei Erwachsenen ein 1,8-faches; für Spannungskopfschmerz zeigte sich kein Zusammenhang. Gedankenchaos, Daueranspannung und unregelmäßiger Schlaf gelten als Auslöser. Stimulanzien wie Methylphenidat können Kopfschmerzen als Nebenwirkung haben.</li>
+      <li><strong>Autismus:</strong> In einer Studie hatten 43 % der autistischen Erwachsenen Migräne, in der Vergleichsgruppe 21 %. Migräne wird in der Kopfschmerzforschung zunehmend als Störung der Sinnesverarbeitung verstanden, mit Licht-, Geräusch- und Geruchsempfindlichkeit. Das überschneidet sich mit autistischer Reizverarbeitung; Reizüberflutung ist ein häufiger Auslöser.</li>
+      <li><strong>Episodische Ataxie Typ 2:</strong> Etwa die Hälfte der Betroffenen hat Migräne, weil derselbe Calciumkanal auch an Migräne beteiligt ist. Bei bekannter oder vermuteter EA2 gehören Kopfschmerzen deshalb ins neurologische Gespräch.</li>
+    </ul>
+    <p class="prose">Kriterien, Checklisten, die Abgrenzung zum Spannungskopfschmerz und passende Fragebögen stehen im Reiter <a href="/migraene">Migräne</a>.</p>
+    <ul class="plain fine">
+      <li><a href="https://doi.org/10.1007/s00787-017-1045-4">Salem et al. (2018): ADHD is associated with migraine – systematic review and meta-analysis. Eur Child Adolesc Psychiatry</a></li>
+      <li><a href="https://doi.org/10.1186/s12883-018-1149-6">Hansen et al. (2018): Comorbidity of migraine with ADHD in adults. BMC Neurology</a></li>
+      <li>Underwood et al. (2019): Migräne bei autistischen Erwachsenen ohne Intelligenzminderung, 42,7 % gegenüber 20,5 %</li>
+      <li><a href="https://www.uclahealth.org/news/article/migraine-and-autism-overlooked-comorbidity-need-clinical-2">UCLA Health (2026): Migraine and autism – an overlooked comorbidity</a></li>
+      <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK1501/">GeneReviews: Episodic Ataxia Type 2</a></li>
+    </ul>
+  </div>
+  <div class="result gesamt" data-gesamt="audhs"></div>
+</section>
+
+<!-- ============ DEPRESSION ============ -->
+<section class="view" id="depression" aria-labelledby="h-dep">
+  <div>
+    <h2 id="h-dep">Depression</h2>
+    <p class="sub">Depressive Episode, rezidivierende und anhaltende (chronische) Depression</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>F32 Episode · F33 rezidivierend · F34.1 Dysthymia</span>
+    <span class="code"><b>ICD-11</b>6A70 · 6A71 · 6A72</span>
+    <span class="code"><b>DSM-5-TR</b>Major Depression · Persistierende depressive Störung</span>
+  </div>
+  <div class="card key">
+    <h3>Kriterien in Kürze</h3>
+    <ul class="plain">
+      <li><strong>DSM-5-TR:</strong> mindestens 5 von 9 Symptomen über mindestens 2 Wochen, fast täglich, darunter gedrückte Stimmung oder Interessen-/Freudverlust.</li>
+      <li><strong>ICD-10:</strong> 3 Hauptsymptome (gedrückte Stimmung, Interessen-/Freudverlust, Antriebsmangel) und 7 Zusatzsymptome. Leicht: 2 + 2 · mittelgradig: 2 + 3–4 · schwer: 3 + mindestens 4.</li>
+      <li><strong>ICD-11:</strong> mindestens 5 von 10 Symptomen (neu: Hoffnungslosigkeit) über 2 Wochen, darunter Stimmung oder Interessenverlust; Schweregrad nach klinischem Gesamtbild.</li>
+      <li>Immer: deutliche Veränderung zum vorherigen Zustand, Beeinträchtigung im Alltag, nicht durch Substanzen oder körperliche Erkrankung erklärt, und <strong>nie</strong> eine manische oder hypomane Phase (sonst bipolar).</li>
+      <li><strong>Wechselt die Stimmung mehrmals am Tag,</strong> ist das Zeitkriterium „fast den ganzen Tag“ meist nicht erfüllt. Solche Schwankungen passen eher zur emotionalen Dysregulation bei ADHS; mehr dazu unter <a href="/abgrenzung">Stimmung: Abgrenzung</a>.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="group" data-group="dep-sym"></div>
+    <div class="stack">
+      <div class="group" data-radio="dep-tagesverlauf"></div>
+      <div class="group" data-group="dep-rahmen"></div>
+      <div class="result" data-result="dep"></div>
+    </div>
+  </div>
+  <h3>Verlaufsformen</h3>
+  <dl class="defs card">
+    <dt>Einzelne Episode</dt><dd>Eine depressive Phase, vorher keine. (F32 · 6A70)</dd>
+    <dt>Rezidivierend</dt><dd>Mindestens zwei Episoden, dazwischen mindestens 2 Monate weitgehend beschwerdefrei. (F33 · 6A71)</dd>
+    <dt>Dysthymie / anhaltend</dt><dd>Leichtere, aber über mindestens 2 Jahre an den meisten Tagen gedrückte Stimmung, nie länger als 2 Monate beschwerdefrei. (F34.1 · 6A72)</dd>
+    <dt>Chronische Depression</dt><dd>Eine Episode dauert länger als 2 Jahre. Tritt eine Episode zusätzlich zur Dysthymie auf, spricht man von „Double Depression“.</dd>
+    <dt>Zusatzmerkmale</dt><dd>Saisonal (Herbst/Winter), melancholisch (Morgentief, Früherwachen, nichts hellt auf), atypisch (Stimmung hellt bei Positivem auf, viel Schlaf und Appetit, bleierne Schwere, Kränkbarkeit), mit psychotischen Symptomen, mit Angst.</dd>
+  </dl>
+  <div class="stack">
+    <div class="stack">
+      <div class="group" data-group="dys-rahmen"></div>
+      <div class="group" data-group="dys-sym"></div>
+      <div class="result" data-result="dys"></div>
+    </div>
+    <div class="stack">
+      <div class="group" data-group="dep-verlauf"></div>
+      <div class="result" data-result="verlauf"></div>
+    </div>
+  </div>
+  <div class="card" data-extern="depression"></div>
+  <div class="result gesamt" data-gesamt="depression"></div>
+  <div class="card">
+    <h3>So läuft die Diagnostik</h3>
+    <p class="prose">Hausärzt:innen, Psychotherapeut:innen oder Psychiater:innen. Neben dem Gespräch gehören eine körperliche Abklärung (u.&nbsp;a. Blutbild, Schilddrüse, Vitamin B12, Eisen) und die Frage nach früheren Hochphasen dazu. Die psychotherapeutische Sprechstunde vermittelt die Terminservicestelle unter 116 117.</p>
+  </div>
+</section>
+
+<!-- ============ BIPOLAR ============ -->
+<section class="view" id="bipolar" aria-labelledby="h-bip">
+  <div>
+    <h2 id="h-bip">Bipolare Störungen</h2>
+    <p class="sub">Bipolar I, Bipolar II, Zyklothymie</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>F31 · F34.0 Zyklothymia</span>
+    <span class="code"><b>ICD-11</b>6A60 · 6A61 · 6A62</span>
+    <span class="code"><b>DSM-5-TR</b>Bipolar I · Bipolar II · Zyklothyme Störung</span>
+  </div>
+  <p class="prose">Bipolare Störungen verlaufen in Episoden: Depressive Phasen wechseln mit Phasen gehobener oder gereizter Stimmung und gesteigerter Energie. Entscheidend ist das <em>episodische</em> Auftreten, also eine klar abgegrenzte Veränderung gegenüber dem sonstigen Wesen über Tage bis Wochen.</p>
+  <div class="card key">
+    <h3>Kriterien in Kürze</h3>
+    <ul class="plain">
+      <li><strong>Manie:</strong> mindestens 7 Tage (oder Klinikaufenthalt) gehobene, expansive oder gereizte Stimmung mit gesteigerter Energie, dazu mindestens 3 Merkmale (4, wenn die Stimmung nur gereizt ist). Deutliche Beeinträchtigung, eventuell psychotische Symptome.</li>
+      <li><strong>Hypomanie:</strong> dieselben Merkmale über mindestens 4 Tage, für andere sichtbar, aber ohne schwere Beeinträchtigung.</li>
+      <li><strong>Bipolar I:</strong> mindestens eine manische Episode. <strong>Bipolar II:</strong> mindestens eine hypomane und eine depressive Episode, nie eine Manie.</li>
+      <li><strong>Zyklothymie:</strong> über mindestens 2 Jahre immer wieder hypomane und depressive Symptome unterhalb der Episodenschwelle.</li>
+      <li>Auch „gemischte Merkmale“ sind möglich: Hoch- und Tiefsymptome gleichzeitig.</li>
+      <li><strong>Abgrenzung zu ADHS:</strong> Getriebenheit „wie von einem Motor“, Rededrang, Ablenkbarkeit und Impulskäufe sind bei ADHS Dauerzustand oder wechseln mehrmals am Tag. Für Hypomanie und Manie zählen sie nur als abgegrenzte Veränderung über mehrere Tage am Stück. Mehr unter <a href="/abgrenzung">Stimmung: Abgrenzung</a>.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="stack">
+      <div class="group" data-group="bip-a"></div>
+      <div class="group" data-group="bip-b"></div>
+    </div>
+    <div class="stack">
+      <div class="group" data-radio="bip-dauer"></div>
+      <div class="group" data-radio="bip-schwere"></div>
+      <div class="group" data-group="bip-zusatz"></div>
+    </div>
+  </div>
+  <div class="result" data-result="bipolar"></div>
+  <div class="card warnbox">
+    <h3>Warum das für die Behandlung wichtig ist</h3>
+    <p>Antidepressiva ohne stimmungsstabilisierende Begleitbehandlung können bei bipolarer Störung Hochphasen oder schnelle Wechsel auslösen. Deshalb fragen Behandelnde vor einer Depressionsbehandlung nach früheren Hochphasen. Erwähne sie auch dann, wenn sie dir damals angenehm vorkamen.</p>
+  </div>
+  <div class="card" data-extern="bipolar"></div>
+  <div class="result gesamt" data-gesamt="bipolar"></div>
+</section>
+
+<!-- ============ ABGRENZUNG ============ -->
+<section class="view" id="abgrenzung" aria-labelledby="h-abg">
+  <div>
+    <h2 id="h-abg">Stimmungsschwankungen: ADHS, Depression oder bipolar?</h2>
+    <p class="sub">Unterscheidung über Dauer, Auslöser und Verlauf</p>
+  </div>
+  <p class="prose">Wechselnde oder gedrückte Stimmung kommt bei ADHS, Depression und bipolaren Störungen vor. Die Unterscheidung gelingt kaum über einzelne Symptome, sondern über das <strong>Zeitmuster</strong>: Wie lange dauert ein Tief, was löst es aus, und war es schon immer so?</p>
+  <div class="tbl-wrap">
+    <table class="cmp">
+      <thead><tr><th scope="col">Merkmal</th><th scope="col">ADHS (emotionale Dysregulation)</th><th scope="col">Depression</th><th scope="col">Bipolare Störung</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Dauer eines Tiefs</th><td>Minuten bis Stunden, selten länger als einen Tag</td><td>Mindestens 2 Wochen durchgehend (Dysthymie: Jahre)</td><td>Episoden über Tage bis Wochen</td></tr>
+        <tr><th scope="row">Auslöser</th><td>Meist erkennbar: Frust, Langeweile, Kritik, Zurückweisung, Reizüberflutung</td><td>Oft ohne klaren Anlass oder unverhältnismäßig lang nach einem Anlass</td><td>Oft ohne äußeren Anlass; Schlafmangel, Jahreszeit, Substanzen können anstoßen</td></tr>
+        <tr><th scope="row">Lebensverlauf</th><td>Dauerhaftes Muster seit der Kindheit (Wesenszug)</td><td>Klarer Bruch zum vorherigen Zustand („seit März bin ich anders“)</td><td>Wechsel zwischen abgegrenzten Phasen, Beginn oft Jugend oder junges Erwachsenenalter</td></tr>
+        <tr><th scope="row">Freude und Interesse</th><td>Vorhanden; springt bei Neuem, Dringendem oder Spannendem sofort an</td><td>Anhaltend vermindert, auch bei früher Geliebtem; Neues hellt kaum auf</td><td>In der Depression vermindert, in der Hochphase übersteigert</td></tr>
+        <tr><th scope="row">Schlaf</th><td>Spät einschlafen wegen Gedankenkreisen, morgens schwer wach; Müdigkeit ist da</td><td>Früherwachen mit Morgentief oder deutlich mehr Schlaf</td><td><strong>Vermindertes Schlafbedürfnis ohne Müdigkeit</strong> in der Hochphase (Schlüsselmerkmal)</td></tr>
+        <tr><th scope="row">Selbstbild</th><td>Oft angekratzt durch wiederholtes Scheitern, schwankt mit Erfolg</td><td>Schuld, Wertlosigkeit, Hoffnungslosigkeit</td><td>Phasenweise übersteigert bis größenwahnsinnig</td></tr>
+        <tr><th scope="row">Konzentration</th><td>Lebenslang wechselhaft, Hyperfokus bei Interesse möglich</td><td>Neu verschlechtert, Grübeln, Entscheidungen fallen schwer</td><td>Gedankenrasen und Ablenkbarkeit in der Hochphase</td></tr>
+        <tr><th scope="row">Hochs</th><td>Begeisterung, Hyperfokus oder Getriebenheit „wie von einem Motor“, kurz und oft mehrmals am Tag; dazu Impulskäufe. Schlafbedürfnis und Müdigkeit bleiben</td><td>Keine</td><td>Über Tage anhaltend, für andere deutlich verändert, mit Rededrang und Risikoverhalten</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cols">
+    <div class="card key">
+      <h3>Stimmt das mit dem Dopaminmangel?</h3>
+      <p>Teilweise. Bei ADHS ist eine veränderte Signalverarbeitung von Dopamin und Noradrenalin in Netzwerken für Belohnung, Motivation und Handlungssteuerung gut belegt. „Mangel“ ist dabei eine Vereinfachung: Es geht eher um eine andere Regulation, etwa bei der Vorfreude auf Belohnung. Die Folge: Unterstimulation fühlt sich unangenehm an, aufgeschobene Belohnung ist schwer auszuhalten, und die Stimmung hängt stark an Interesse und Neuheit.</p>
+      <p>Auch Depression betrifft das Belohnungssystem (Freudlosigkeit), dazu Stresshormone, Entzündungsprozesse und weitere Botenstoffe; ein einfacher Mangel erklärt sie ebenso wenig. Für bipolare Hochphasen wird eine Überaktivität dopaminerger Systeme diskutiert. Botenstoffe lassen sich im Alltag nicht messen, deshalb unterscheidet die Diagnostik über Verlauf und Dauer.</p>
+    </div>
+    <div class="card">
+      <h3>Weitere Abgrenzungen</h3>
+      <ul class="plain">
+        <li><strong>Kombinationen sind häufig.</strong> ADHS und Depression treten oft gemeinsam auf. Ein Hinweis auf eine zusätzliche depressive Episode: Die ADHS-typische Reaktion auf Neues verschwindet und die Freudlosigkeit hält über Wochen an.</li>
+        <li><strong>Tagesverlauf:</strong> Wechselt die Stimmung mehrmals täglich, treffen depressive Symptome oft nur „teilweise“ zu, weil die Kriterien „fast den ganzen Tag, fast jeden Tag“ verlangen. Das spricht eher für ADHS-typische Schwankungen als für eine depressive Episode.</li>
+        <li><strong>Emotional-instabile (Borderline-)Persönlichkeit:</strong> Stimmungswechsel über Stunden bis wenige Tage, stark durch Beziehungen ausgelöst (Angst vor Verlassenwerden), dazu chronische Leere, instabiles Selbstbild und oft Selbstverletzung.</li>
+        <li><strong>Atypische Depression</strong> mit starker Kränkbarkeit bei Zurückweisung ähnelt der ADHS-typischen Zurückweisungsempfindlichkeit, dauert aber als Episode wochenlang.</li>
+        <li><strong>Autistischer Burnout</strong> kann wie eine Depression aussehen; typisch sind Verlust von Fähigkeiten und stärkere Reizempfindlichkeit nach langer Überlastung.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="group" data-group="diff"></div>
+  <div class="result" data-result="abgrenzung"></div>
+</section>
+
+<!-- ============ ALEXITHYMIE ============ -->
+<section class="view" id="alexithymie" aria-labelledby="h-alx">
+  <div>
+    <h2 id="h-alx">Alexithymie</h2>
+    <p class="sub">Schwierigkeiten, Gefühle zu erkennen und zu benennen</p>
+  </div>
+  <div class="codes"><span class="code"><b>Keine Diagnose</b>Persönlichkeitsmerkmal auf einem Kontinuum</span></div>
+  <p class="prose">Alexithymie („Gefühlsblindheit“) beschreibt, wie gut jemand eigene Gefühle wahrnimmt, von Körperempfindungen unterscheidet und in Worte fasst. Etwa jede zehnte Person ist deutlich betroffen, bei Autismus ungefähr jede zweite; erhöht ist sie auch bei Depression und ADHS. Oft hängt sie mit einer veränderten Wahrnehmung innerer Körpersignale (Interozeption) zusammen. Sie ist behandelbar, z.&nbsp;B. über Emotions- und Körperwahrnehmungstraining.</p>
+  <div class="card key">
+    <h3>Die drei Facetten (nach TAS-20)</h3>
+    <ul class="plain">
+      <li><strong>Gefühle erkennen:</strong> Körperliche Erregung wird gespürt, aber nicht als bestimmtes Gefühl erkannt.</li>
+      <li><strong>Gefühle beschreiben:</strong> Es fehlen Worte, um Gefühle anderen mitzuteilen.</li>
+      <li><strong>Außenorientiertes Denken:</strong> Aufmerksamkeit richtet sich auf Fakten und Handlungen statt auf das Innenleben.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="group" data-group="alx-dif"></div>
+    <div class="group" data-group="alx-ddf"></div>
+    <div class="group" data-group="alx-eot"></div>
+  </div>
+  <div class="result" data-result="alexithymie"></div>
+  <div class="card" data-extern="alexithymie"></div>
+  <div class="result gesamt" data-gesamt="alexithymie"></div>
+</section>
+
+<!-- ============ ATAXIE ============ -->
+<section class="view" id="ataxie" aria-labelledby="h-ea2">
+  <div>
+    <h2 id="h-ea2">Episodische Ataxie Typ 2 (EA2)</h2>
+    <p class="sub">Anfallsartige Gleichgewichts- und Koordinationsstörung</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>G11.- (hereditäre Ataxien)</span>
+    <span class="code"><b>Gen</b>CACNA1A, autosomal-dominant</span>
+  </div>
+  <p class="prose">Seltene erbliche Kanalerkrankung (Calciumkanal im Kleinhirn). Typisch sind Attacken mit Gang- und Standunsicherheit, Drehschwindel und oft Übelkeit, die Minuten bis Stunden, teils Tage dauern. Zwischen den Attacken ist man oft weitgehend beschwerdefrei; Ärzt:innen finden dann aber häufig ein Augenzittern (Nystagmus), manchmal entwickelt sich über Jahre eine leichte Dauer-Ataxie. Häufig bestehen zusätzlich Migräne-Kopfschmerzen.</p>
+  <div class="card key">
+    <h3>Klinische Kriterien in Kürze</h3>
+    <ul class="plain">
+      <li>Wiederkehrende Attacken mit Gang- und Gliedmaßenataxie, Drehschwindel und Augenzittern, oft mit Übelkeit; möglich sind auch verwaschene Sprache, Doppelbilder, Ohrgeräusche, Schwäche und Kopfschmerz.</li>
+      <li>Dauer: 5 Minuten bis Tage. Häufigkeit: von ein- bis zweimal im Jahr bis drei- bis viermal pro Woche.</li>
+      <li>Beschriebene Auslöser: körperliche Anstrengung und Sport, emotionaler Stress, Müdigkeit, plötzliche Bewegungen, Alkohol, Koffein, Nikotin, Fieber und Hitze.</li>
+      <li>Beginn meist in Kindheit oder früher Jugend (Spanne etwa 2 bis 32 Jahre); autosomal-dominant vererbt, oft ähnliche Fälle in der Familie.</li>
+      <li>Augenzittern auch zwischen den Attacken (Blickrichtungs- oder Downbeat-Nystagmus).</li>
+      <li>Bestätigung durch Gentest (CACNA1A). Ansprechen auf Acetazolamid oder 4-Aminopyridin stützt die Diagnose.</li>
+      <li>Abgrenzung: EA1 (Attacken nur Sekunden bis Minuten, Muskelzucken), vestibuläre Migräne, Multiple Sklerose, SCA6 (gleiches Gen, fortschreitend), Morbus Menière, Durchblutungsstörungen.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="stack">
+      <div class="group" data-group="ea2-kern"></div>
+      <div class="group" data-radio="ea-dauer"></div>
+    </div>
+    <div class="stack">
+      <div class="group" data-group="ea2-ausloeser"></div>
+      <div class="group" data-group="ea2-verlauf"></div>
+    </div>
+  </div>
+  <div class="group" data-group="ea2-weitere"></div>
+  <div class="result" data-result="ataxie"></div>
+  <div class="cols">
+    <div class="card">
+      <h3>So läuft die Diagnostik</h3>
+      <p>Neurologie, idealerweise mit Schwerpunkt Bewegungsstörungen oder Ataxien. Mitbringen: Attackenprotokoll (Datum, Dauer, Auslöser, Symptome) und ein Handyvideo einer Attacke. Untersuchung der Augenbewegungen, MRT (teils Kleinhirnverkleinerung), Gentest mit humangenetischer Beratung. Einen standardisierten Selbsttest gibt es nicht.</p>
+    </div>
+    <div class="card">
+      <h3>Falls Spinozerebelläre Ataxie Typ 2 (SCA2) gemeint war</h3>
+      <p>SCA2 verläuft nicht in Attacken, sondern <strong>langsam fortschreitend</strong>: zunehmende Gangunsicherheit, Dysarthrie, Schluckstörung, auffallend <strong>verlangsamte Blicksprünge</strong>, Nervenschäden mit schwachen Reflexen, teils Parkinson-Symptome. Beginn meist im Erwachsenenalter. Ursache ist eine CAG-Wiederholung im Gen ATXN2 (autosomal-dominant); die Diagnose erfolgt per Gentest, der Schweregrad wird z.&nbsp;B. mit der SARA-Skala erfasst.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Andere Ursachen für Schwindelattacken</h3>
+    <p class="prose">Kurze Schwindel- und Gleichgewichtsattacken haben viele mögliche Ursachen. Die Dauer der eigentlichen Attacke ist dabei eines der wichtigsten Unterscheidungsmerkmale.</p>
+    <div class="tbl-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col">Erkrankung</th><th scope="col">Dauer</th><th scope="col">Typisch</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Episodische Ataxie Typ 2</th><td>5 Minuten bis Tage</td><td>Gang- und Standunsicherheit, Drehschwindel, Augenzittern auch zwischen den Attacken; Auslöser Stress, Anstrengung, Koffein, Alkohol; häufig Migräne; Acetazolamid wirkt</td></tr>
+          <tr><th scope="row">Episodische Ataxie Typ 1</th><td>Sekunden bis Minuten, oft mehrmals täglich</td><td>Muskelzucken (Myokymien) während und zwischen den Attacken; Drehschwindel eher selten</td></tr>
+          <tr><th scope="row">Vestibuläre Migräne</th><td>5 Minuten bis 72 Stunden</td><td>Migräne in der Vorgeschichte, Licht- und Geräuschempfindlichkeit, Kopfschmerz nicht immer dabei; Schlaf hilft oft, danach Erschöpfung</td></tr>
+          <tr><th scope="row">Vestibuläre Paroxysmie</th><td>unter 1 Minute, oft viele pro Tag</td><td>Gleichförmige Drehschwindelattacken, teils mit Ohrgeräusch; Carbamazepin wirkt</td></tr>
+          <tr><th scope="row">Morbus Menière</th><td>20 Minuten bis 12 Stunden</td><td>Hörminderung, Ohrdruck und Ohrgeräusche auf einem Ohr</td></tr>
+          <tr><th scope="row">Paroxysmale nicht-kinesiogene Dyskinesie (Mount-Reback)</th><td>Minuten bis Stunden</td><td>Unwillkürliche Bewegungen wie Verkrampfungen, Verdrehungen oder Zuckungen bei erhaltenem Bewusstsein; kein Drehschwindel und keine Gangataxie; Auslöser Koffein, Alkohol, Stress, Müdigkeit</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose"><strong>Schlaf:</strong> Ein Fallbericht beschreibt EA2-Attacken, die schon nach etwa 15 Minuten Schlaf vollständig abklangen; auch Migräneattacken bessern sich oft im Schlaf. Bei der Mount-Reback-Erkrankung wurden ebenfalls Familien beschrieben, bei denen kurzer Schlaf die Episoden unterbrach. Erholsamer Schlaf ist deshalb kein sicheres Unterscheidungsmerkmal. Der wichtigere Unterschied: Mount-Reback verursacht unwillkürliche Bewegungen, aber keinen Drehschwindel und keine Gangunsicherheit.</p>
+    <p class="prose"><strong>Für das Gespräch in der Neurologie:</strong> Notiere je Attacke Beginn, Dauer der eigentlichen Attacke, wie lange Reste anhalten, Auslöser, Sturz, Benommenheit, Erholung durch Schlaf und Erschöpfung danach. Ein kurzes Handyvideo einer Attacke, besonders der Augen, ist sehr hilfreich.</p>
+    <ul class="plain fine">
+      <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK1501/">GeneReviews: Episodic Ataxia Type 2</a> · <a href="https://www.omim.org/entry/108500">OMIM 108500: EA2</a></li>
+      <li><a href="https://doi.org/10.1186/s12883-019-1491-3">Ahuja et al. (2019): A sleep modulated channelopathy – EA2 und Schlaf. BMC Neurology</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/23142830/">Lempert et al. (2012): Vestibular migraine – diagnostic criteria (Bárány Society / IHS)</a></li>
+      <li><a href="https://doi.org/10.3233/VES-160589">Strupp et al. (2016): Vestibular paroxysmia – diagnostic criteria (Bárány Society)</a></li>
+      <li><a href="https://www.omim.org/entry/118800">OMIM 118800: Paroxysmale nicht-kinesiogene Dyskinesie (Mount-Reback-Syndrom)</a></li>
+    </ul>
+  </div>
+  <div class="card key">
+    <h3>EA2 und Neurodivergenz</h3>
+    <p class="prose">Studien zu Veränderungen im Gen CACNA1A, der Ursache der EA2, beschreiben neben den Attacken häufig Entwicklungs- und Verhaltensmerkmale: Aufmerksamkeitsprobleme bis ADHS, autistische Merkmale, Lernschwierigkeiten und leichte kognitive Auffälligkeiten. In einer Familienstudie mit 16 Betroffenen mit Funktionsverlust des Gens (dem Mechanismus der EA2) zeigten 11 ADHS-Merkmale oder Impulsivität und 4 autistische Merkmale. In einer Innsbrucker Ambulanzkohorte mit 44 genetisch gesicherten Fällen hatten 8 psychiatrische Begleiterkrankungen, davon 6 mit EA2; bei 21 von 23 neuropsychologisch Getesteten fanden sich kognitive Auffälligkeiten. Die Autor:innen vermuten, dass der Funktionsverlust des Kanals neben dem Kleinhirn auch Netzwerke in Großhirnrinde und limbischem System betrifft.</p>
+    <p class="prose"><strong>Einschränkung:</strong> Die Daten stammen aus kleinen, teils schwerer betroffenen Fallserien. Wie häufig Neurodivergenz bei typischer familiärer EA2 genau ist, ist nicht bekannt; die Richtung ist aber in mehreren Arbeiten gleich. Bei EA2 lohnt sich deshalb der Blick auf die Reiter <a href="/adhs">ADHS</a>, <a href="/autismus">Autismus</a> und <a href="/dyskalkulie">Dyskalkulie</a>. Zu Kopfschmerzen siehe <a href="/migraene">Migräne</a>.</p>
+    <ul class="plain fine">
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4613477">Damaj et al. (2015): CACNA1A haploinsufficiency causes cognitive impairment, autism and epileptic encephalopathy. Eur J Hum Genet</a></li>
+      <li><a href="https://doi.org/10.1111/ene.13765">Indelicato et al. (2019): The neuropsychiatric phenotype in CACNA1A mutations. Eur J Neurol</a></li>
+      <li><a href="https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2021.639994">Indelicato &amp; Boesch (2021): From Genotype to Phenotype – CACNA1A Variants. Front Neurol</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9458680">Lipman et al. (2022): Clinical and genetic characterization of CACNA1A-related disease. Clin Genet</a></li>
+    </ul>
+  </div>
+  <div class="result gesamt" data-gesamt="ataxie"></div>
+</section>
+
+<!-- ============ MIGRÄNE ============ -->
+<section class="view" id="migraene" aria-labelledby="h-mig">
+  <div>
+    <h2 id="h-mig">Migräne</h2>
+    <p class="sub">Erbliche neurologische Erkrankung mit wiederkehrenden Kopfschmerzattacken</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>G43.- (Migräne), G44.2 (Spannungskopfschmerz)</span>
+    <span class="code"><b>ICHD-3</b>1 Migräne, 2 Spannungskopfschmerz</span>
+  </div>
+  <p class="prose">Migräne ist eine erbliche Erkrankung des Gehirns, die auch zwischen den Attacken besteht. Eine Attacke kann vier Phasen haben: Vorboten (Stunden bis zwei Tage vorher), bei etwa 15 bis 25 % eine Aura, die Kopfschmerzphase und eine Erholungsphase mit Erschöpfung. Manche Attacken verlaufen ganz ohne Kopfschmerz, etwa nur mit Schwindel, Übelkeit oder Sehstörungen. Weltweit ist Migräne die zweithäufigste Ursache für mit Beeinträchtigung gelebte Lebensjahre, bei Frauen unter 50 die häufigste.</p>
+  <div class="card key">
+    <h3>Diagnosekriterien in Kürze (ICHD-3)</h3>
+    <ul class="plain">
+      <li><strong>Migräne ohne Aura:</strong> mindestens 5 Attacken, die unbehandelt oder erfolglos behandelt 4 bis 72 Stunden dauern. Wer einschläft und ohne Kopfschmerz aufwacht, rechnet bis zum Aufwachen.</li>
+      <li>Mindestens 2 von 4 Schmerzmerkmalen: einseitig, pulsierend, mittlere bis starke Intensität, Verstärkung durch körperliche Routine wie Treppensteigen (oder deren Vermeidung).</li>
+      <li>Mindestens 1 von 2 Begleitsymptomen: Übelkeit oder Erbrechen; Licht- und Lärmempfindlichkeit zusammen.</li>
+      <li><strong>Migräne mit Aura:</strong> mindestens 2 Attacken mit vollständig zurückgehenden Seh-, Gefühls- oder Sprachstörungen. Sie breiten sich meist langsam über mindestens 5 Minuten aus, dauern je 5 bis 60 Minuten, und der Kopfschmerz folgt meist innerhalb einer Stunde.</li>
+      <li><strong>Chronische Migräne:</strong> Kopfschmerz an mindestens 15 Tagen im Monat seit mehr als 3 Monaten, davon an mindestens 8 Tagen mit Migränemerkmalen oder Besserung durch ein Triptan.</li>
+      <li><strong>Status migraenosus:</strong> eine stark beeinträchtigende Attacke dauert länger als 72 Stunden.</li>
+      <li><strong>Wahrscheinliche Migräne:</strong> alle Kriterien bis auf eines erfüllt.</li>
+      <li><strong>Ort:</strong> Einseitigkeit ist kein Muss. Bei vielen Betroffenen sitzt der Schmerz beidseitig; auch Scheitel oder Kopfmitte sind beschrieben. Entscheidend sind Schmerzcharakter, Dauer und Begleitsymptome.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="group" data-radio="mig-tage"></div>
+    <div class="group" data-radio="mig-dauer"></div>
+    <div class="group" data-radio="mig-ort"></div>
+    <div class="group" data-group="mig-attacke"></div>
+    <div class="group" data-group="mig-begleit"></div>
+    <div class="group" data-group="mig-verlauf"></div>
+    <div class="group" data-group="mig-aura"></div>
+    <div class="group" data-group="mig-aura-c"></div>
+    <div class="group" data-group="mig-phasen"></div>
+    <div class="group" data-group="mig-ausloeser"></div>
+    <div class="group" data-group="mig-tth"></div>
+    <div class="group" data-group="mig-tth-b"></div>
+  </div>
+  <div class="result" data-result="migraene"></div>
+  <div class="card" data-extern="migraene"></div>
+  <div class="card">
+    <h3>Abgrenzung: Spannungskopfschmerz und andere Kopfschmerzen</h3>
+    <p class="prose">Der Spannungskopfschmerz ist die häufigste Kopfschmerzart und der wichtigste Gegenspieler bei der Einordnung. Viele Menschen mit Migräne haben zusätzlich Spannungskopfschmerzen. Ein Kopfschmerzkalender über 4 bis 8 Wochen trennt die Tage.</p>
+    <div class="tbl-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col">Kopfschmerz</th><th scope="col">Dauer und Häufigkeit</th><th scope="col">Typisch</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Migräne</th><td>4 bis 72 Stunden je Attacke</td><td>Oft einseitig und pulsierend, mittel bis stark, Bewegung verstärkt; Übelkeit oder Licht- und Lärmempfindlichkeit; Rückzug in Ruhe und Dunkelheit; Triptane wirken</td></tr>
+          <tr><th scope="row">Spannungskopfschmerz</th><td>30 Minuten bis 7 Tage; chronisch an 15 oder mehr Tagen, auch als Dauerkopfschmerz</td><td>Beidseitig, drückend oder ziehend wie ein Band, leicht bis mittel; Bewegung verstärkt nicht; keine Übelkeit, höchstens Licht- <em>oder</em> Lärmempfindlichkeit; Triptane wirken nicht</td></tr>
+          <tr><th scope="row">Chronische Migräne</th><td>An 15 oder mehr Tagen im Monat, seit über 3 Monaten</td><td>Mischung aus Migränetagen und leichteren Tagen; oft zusammen mit Schmerzmittelübergebrauch</td></tr>
+          <tr><th scope="row">Neu aufgetretener täglicher Kopfschmerz (NDPH)</th><td>Täglich seit einem klar erinnerbaren Tag, seit über 3 Monaten</td><td>Kann migräne- oder spannungskopfschmerzartig sein; der Beginn innerhalb von 24 Stunden ist das Kennzeichen</td></tr>
+          <tr><th scope="row">Kopfschmerz bei Medikamentenübergebrauch</th><td>An 15 oder mehr Tagen</td><td>Einfache Schmerzmittel an 15 oder mehr Tagen, Triptane, Kombipräparate oder Opioide an 10 oder mehr Tagen im Monat, über mehr als 3 Monate</td></tr>
+          <tr><th scope="row">Clusterkopfschmerz</th><td>15 bis 180 Minuten, bis zu 8-mal täglich, oft in Episoden über Wochen</td><td>Streng einseitig um ein Auge, sehr stark; Unruhe statt Rückzug; tränendes, gerötetes Auge, laufende oder verstopfte Nase</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose"><strong>Auslöser oder schon Vorbote?</strong> Heißhunger auf Süßes, Gähnen, Licht- und Geräuschempfindlichkeit oder Nackenschmerzen gehören oft schon zur Vorphase der Attacke. Was man in dieser Phase isst oder erlebt, wird leicht für den Auslöser gehalten. Für Schokolade fanden Provokationsstudien keinen Unterschied zu Placebo. Auslöser erklären einzelne Attacken, aber nicht, warum jemand Migräne hat.</p>
+    <ul class="plain fine">
+      <li><a href="https://ichd-3.org/1-migraine/">ICHD-3: 1 Migraine</a> · <a href="https://ichd-3.org/2-tension-type-headache/">ICHD-3: 2 Tension-type headache</a> (Internationale Kopfschmerzgesellschaft)</li>
+      <li><a href="https://doi.org/10.1212/CPJ.0000000000200359">Schwedt et al. (2025): Characterizing prodrome in migraine – PRODROME trial. Neurol Clin Pract</a></li>
+      <li><a href="https://link.springer.com/article/10.1007/s00415-020-10344-1">Karsan et al. (2021): Are some patient-perceived migraine triggers simply early manifestations of the attack? J Neurol</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7146545">Nowaczewska et al. (2020): To eat or not to eat – chocolate and migraine. Nutrients</a></li>
+    </ul>
+  </div>
+  <div class="card key">
+    <h3>Migräne bei Autismus und ADHS</h3>
+    <ul class="plain">
+      <li><strong>Häufigkeit:</strong> Bei autistischen Erwachsenen fand eine Studie Migräne bei 43 %, in der Vergleichsgruppe bei 21 %. Für ADHS fand eine Metaanalyse ein etwa 1,3-fach, eine große Studie bei Erwachsenen ein 1,8-fach erhöhtes Risiko; für Spannungskopfschmerz zeigte sich kein Zusammenhang.</li>
+      <li><strong>Gemeinsame Gene:</strong> Genomstudien finden gemeinsame Genvarianten von ADHS und Migräne. Eine Mendelsche Randomisierung (Vorabveröffentlichung 2026) spricht dafür, dass die genetische ADHS-Veranlagung das Migränerisiko ursächlich erhöht, etwa um die Hälfte, bei Migräne mit und ohne Aura. Migräne bleibt dabei eine eigene, erbliche Erkrankung: ADHS erhöht das Risiko, ist aber weder Voraussetzung noch alleinige Ursache.</li>
+      <li><strong>Reizverarbeitung:</strong> Migräne gilt zunehmend als Störung der Reizverarbeitung. Das Gehirn reagiert auf Licht- und Tonreize stärker und gewöhnt sich schlechter an wiederholte Reize; das ist in EEG-Studien messbar. Die Schmerzklinik Kiel beschreibt ein angeboren übererregbares, „schnelles“ Gehirn, das plötzliche Veränderungen wie Hunger, Stress oder Schlafmangel schlecht abfängt. Das überschneidet sich mit autistischer Reizverarbeitung und ADHS-typischer Daueraktivierung; Reizüberflutung, Stress, unregelmäßiger Schlaf und ausgelassene Mahlzeiten sind gemeinsame Auslöser.</li>
+      <li><strong>Überlappende Symptome:</strong> Wortfindungsstörungen, Vergesslichkeit, Konzentrationsprobleme und Erschöpfung können zur Vor- oder Erholungsphase gehören und ADHS- oder Autismus-Merkmalen ähneln. Gehen sie mit wirksamer Migränebehandlung zurück, gehörten sie zur Migräne. Umgekehrt ist autistische Licht- und Lärmempfindlichkeit oft dauerhaft da; für die Migränekriterien zählt die deutliche Zunahme während des Kopfschmerzes.</li>
+      <li><strong>Alexithymie:</strong> Schwierigkeiten, Gefühle zu erkennen und zu benennen, gehen in Studien mit häufigeren und stärkeren Attacken und mit Chronifizierung bei Schmerzmittelübergebrauch einher. Siehe Reiter <a href="/alexithymie">Alexithymie</a>.</li>
+      <li><strong>Masking und soziale Dauerbelastung</strong> werden von autistischen Menschen häufig als Auslöser berichtet; eigens untersucht ist das bisher kaum.</li>
+      <li><strong>Medikamente:</strong> Methylphenidat und andere Stimulanzien können Kopfschmerzen verursachen. Das Migräne-Vorbeugemittel Topiramat kann Wortfindung und Konzentration beeinträchtigen, was bei ADHS besonders ins Gewicht fällt. Beides gehört ins ärztliche Gespräch.</li>
+      <li><strong>CACNA1A:</strong> Das Gen der episodischen Ataxie Typ 2 verursacht auch die familiäre hemiplegische Migräne; etwa die Hälfte der Menschen mit EA2 hat Migräne. Siehe Reiter <a href="/ataxie">Ataxie Typ 2</a>.</li>
+    </ul>
+    <ul class="plain fine">
+      <li>Underwood et al. (2019): Migräne bei autistischen Erwachsenen ohne Intelligenzminderung, 42,7 % gegenüber 20,5 %</li>
+      <li><a href="https://www.uclahealth.org/news/article/migraine-and-autism-overlooked-comorbidity-need-clinical-2">UCLA Health (2026): Migraine and autism – an overlooked comorbidity</a></li>
+      <li><a href="https://doi.org/10.1007/s00787-017-1045-4">Salem et al. (2018): ADHD is associated with migraine – systematic review and meta-analysis. Eur Child Adolesc Psychiatry</a></li>
+      <li><a href="https://doi.org/10.1186/s12883-018-1149-6">Hansen et al. (2018): Comorbidity of migraine with ADHD in adults. BMC Neurology</a></li>
+      <li><a href="https://sciety.org/articles/activity/10.64898/2026.09.08.26362527">Genetic liability to ADHD and migraine risk: Mendelian randomization evidence (2026, Vorabveröffentlichung)</a></li>
+      <li><a href="https://www.test.de/Migraene-Die-Attacken-stoppen-4281589-4281594/">Stiftung Warentest: Migräne – die Attacken stoppen (mit Prof. Göbel, Schmerzklinik Kiel)</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>So läuft Diagnostik und Behandlung</h3>
+    <ul class="plain">
+      <li><strong>Diagnose:</strong> Sie wird klinisch gestellt, über Gespräch und neurologische Untersuchung nach ICHD-3. Bildgebung braucht es nur bei Warnzeichen oder untypischem Verlauf. Anlaufstellen sind Hausarztpraxis, Neurologie und Kopfschmerzambulanzen.</li>
+      <li><strong>Kopfschmerzkalender:</strong> 4 bis 8 Wochen täglich Kopfschmerztage, Dauer, Stärke, Begleitsymptome, Medikamente und mögliche Auslöser notieren, z.&nbsp;B. mit dem DMKG-Kopfschmerzkalender oder der Migräne-App. Er ist auch die Grundlage für die Entscheidung über eine Vorbeugung.</li>
+      <li><strong>Akutbehandlung:</strong> Triptane oder Schmerzmittel wie Ibuprofen, ASS oder Paracetamol früh in der Attacke. Akutmittel möglichst an weniger als 10 Tagen im Monat nehmen.</li>
+      <li><strong>Vorbeugung:</strong> Laut DGN/DMKG-Leitlinie sprechen dafür: mindestens 3 Attacken pro Monat mit deutlicher Beeinträchtigung, Attacken über 72 Stunden, Akutmittel, die nicht wirken, oder Schmerzmittel an 10 oder mehr Tagen im Monat. CGRP-Antikörper sind ab 4 Migränetagen im Monat zugelassen.</li>
+      <li><strong>Ohne Medikamente:</strong> regelmäßiger Ausdauersport, Entspannungsverfahren wie progressive Muskelentspannung, Verhaltenstherapie, ein gleichmäßiger Schlaf-Wach-Rhythmus und regelmäßige Mahlzeiten.</li>
+      <li><strong>Warum es sich lohnt:</strong> In einer großen US-Studie wurde eine Migräne mit unzureichend wirksamer Akutbehandlung innerhalb eines Jahres deutlich häufiger chronisch. Migräne mit Aura verdoppelt etwa das Schlaganfallrisiko, vor allem zusammen mit Rauchen und östrogenhaltiger Pille; das absolute Risiko bleibt niedrig.</li>
+      <li><strong>Sofort ärztlich (Notruf 112):</strong> schlagartig einsetzender, stärkster Kopfschmerz innerhalb einer Minute; Lähmungen, Sprach- oder Sehstörungen, die nicht wie eine bekannte Aura verlaufen; Fieber mit Nackensteife oder Verwirrtheit; Kopfschmerz nach Sturz oder Unfall. <strong>Zeitnah abklären:</strong> neuer Kopfschmerz ab 50, deutlich veränderte oder stetig zunehmende Kopfschmerzen.</li>
+    </ul>
+    <ul class="plain fine">
+      <li><a href="https://register.awmf.org/assets/guidelines/030-057l_S1_Therapie-der-Migraeneattacke-Prophylaxe-der-Migraene_2025-11.pdf">DGN/DMKG (2025): Therapie der Migräneattacke und Prophylaxe der Migräne, S1-Leitlinie (PDF)</a></li>
+      <li><a href="https://www.dmkg.de/patienten/dmkg-kopfschmerzkalender">DMKG-Kopfschmerzkalender</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/25609757">Lipton et al. (2015): Ineffective acute treatment of episodic migraine is associated with new-onset chronic migraine. Neurology</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7708887/">Steiner et al. (2020): Migraine remains second among the world’s causes of disability (GBD 2019). J Headache Pain</a></li>
+    </ul>
+  </div>
+  <div class="result gesamt" data-gesamt="migraene"></div>
+</section>
+
+<!-- ============ DYSKALKULIE ============ -->
+<section class="view" id="dyskalkulie" aria-labelledby="h-dk">
+  <div>
+    <h2 id="h-dk">Dyskalkulie</h2>
+    <p class="sub">Rechenstörung</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>F81.2</span>
+    <span class="code"><b>ICD-11</b>6A03.2</span>
+    <span class="code"><b>DSM-5-TR</b>Spezifische Lernstörung mit Beeinträchtigung im Rechnen</span>
+  </div>
+  <p class="prose">Umschriebene Entwicklungsstörung: anhaltende Schwierigkeiten mit Zahlverständnis, Rechenfakten und Rechenwegen, die nicht durch Intelligenz, Unterricht oder Sinnesstörungen erklärbar sind. Sie beginnt in der Schulzeit und bleibt oft bis ins Erwachsenenalter, wo sie sich vor allem bei Geld, Zeit und Mengen zeigt.</p>
+  <div class="card key">
+    <h3>Kriterien in Kürze</h3>
+    <ul class="plain">
+      <li>Rechenleistung in einem normierten Test deutlich unter dem Alters- oder Klassenniveau, typischerweise im unteren Bereich (etwa unter Prozentrang 16, also schwächer als rund 84&nbsp;% der Vergleichsgruppe).</li>
+      <li>Die Schwierigkeiten bestehen seit mindestens 6 Monaten trotz gezielter Förderung und begannen in der Schulzeit.</li>
+      <li>Deutliche Beeinträchtigung in Schule, Ausbildung, Beruf oder Alltag.</li>
+      <li>Nicht besser erklärbar durch Intelligenzminderung, Seh- oder Hörstörung, fehlende Beschulung oder neurologische Erkrankung. ICD-10 und die deutsche S3-Leitlinie berücksichtigen zusätzlich den Abstand zur allgemeinen Intelligenz.</li>
+      <li>Abgrenzung: Flüchtigkeitsfehler bei ADHS (das Verständnis ist da), Mathematikangst (Leistung bricht vor allem unter Druck ein). Zahlendreher sind im Deutschen wegen der verdrehten Zahlwörter verbreitet und hängen eng mit dem Arbeitsgedächtnis zusammen; für sich allein sprechen sie nicht für eine Rechenstörung.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="group" data-group="dk-zahl"></div>
+    <div class="group" data-group="dk-rechnen"></div>
+    <div class="group" data-group="dk-alltag"></div>
+    <div class="stack">
+      <div class="group" data-group="dk-vg"></div>
+      <div class="result" data-result="dyskalkulie"></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>So läuft die Diagnostik</h3>
+    <p class="prose">Kinder und Jugendliche: Kinder- und Jugendpsychiatrie, Sozialpädiatrisches Zentrum oder schulpsychologischer Dienst, mit normierten Rechentests (z.&nbsp;B. ZAREKI-R, DEMAT, HRT 1–4) und einem Intelligenztest. Erwachsene: neuropsychologische Diagnostik; normierte Verfahren für Erwachsene sind rar. Mit Befund ist in Ausbildung und Studium ein Nachteilsausgleich möglich.</p>
+  </div>
+  <div class="card" data-extern="dyskalkulie"></div>
+  <div class="result gesamt" data-gesamt="dyskalkulie"></div>
+</section>
+
+<!-- ============ DYSPRAXIE ============ -->
+<section class="view" id="dyspraxie" aria-labelledby="h-dp">
+  <div>
+    <h2 id="h-dp">Dyspraxie</h2>
+    <p class="sub">Umschriebene Entwicklungsstörung der motorischen Funktionen (UEMF), international DCD</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>F82</span>
+    <span class="code"><b>ICD-11</b>6A04</span>
+    <span class="code"><b>DSM-5-TR</b>Entwicklungsbezogene Koordinationsstörung</span>
+  </div>
+  <p class="prose">Betroffen sind Planung und Ausführung koordinierter Bewegungen, von der Handschrift bis zum Sport. Im Alltag zeigt sich das als Ungeschicklichkeit, langsames Erlernen neuer Bewegungsabläufe und hoher Konzentrationsaufwand für Routinehandgriffe. In der Neurologie bezeichnet „Dyspraxie“ außerdem erworbene Störungen der Bewegungsplanung, etwa nach einem Schlaganfall.</p>
+  <div class="card key">
+    <h3>Kriterien in Kürze</h3>
+    <ul class="plain">
+      <li><strong>I</strong> · Motorische Fähigkeiten deutlich unter dem, was Alter und Übungsmöglichkeiten erwarten lassen (im normierten Test meist höchstens 16. Perzentile).</li>
+      <li><strong>II</strong> · Deutliche Beeinträchtigung bei Alltagsaktivitäten, Schule, Beruf oder Freizeit.</li>
+      <li><strong>III</strong> · Beginn in der frühen Entwicklung; die Diagnose wird meist ab 5 Jahren gestellt.</li>
+      <li><strong>IV</strong> · Nicht besser erklärbar durch Intelligenzminderung, Sehstörung oder neurologische Erkrankung (z.&nbsp;B. Zerebralparese, Muskelerkrankung).</li>
+      <li>Häufig zusammen mit ADHS, Autismus oder Lernstörungen.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="group" data-group="dp-grob"></div>
+    <div class="group" data-group="dp-fein"></div>
+    <div class="group" data-group="dp-alltag"></div>
+    <div class="stack">
+      <div class="group" data-group="dp-vg"></div>
+      <div class="result" data-result="dyspraxie"></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>So läuft die Diagnostik</h3>
+    <p class="prose">Kinder: Kinderärzt:in, Sozialpädiatrisches Zentrum, Ergotherapie; Motoriktest MABC-2 und Elternfragebogen DCDQ. Erwachsene: Neurologie oder Ergotherapie; als Fragebogen dient die Adult DCD/Dyspraxia Checklist (ADC). Ergotherapie hilft in jedem Alter mit gezieltem Training und Hilfsmitteln.</p>
+  </div>
+  <div class="card" data-extern="dyspraxie"></div>
+  <div class="result gesamt" data-gesamt="dyspraxie"></div>
+</section>
+
+<!-- ============ DYSARTHRIE ============ -->
+<section class="view" id="dysarthrie" aria-labelledby="h-da">
+  <div>
+    <h2 id="h-da">Dysarthrie</h2>
+    <p class="sub">Neurologisch bedingte Sprechstörung</p>
+  </div>
+  <div class="codes">
+    <span class="code"><b>ICD-10-GM</b>R47.1 (Symptom; die Ursache wird zusätzlich kodiert)</span>
+  </div>
+  <p class="prose">Bei einer Dysarthrie ist die Steuerung der Sprechmuskulatur gestört: Atmung, Stimme, Artikulation und Sprechtempo. Sprachverständnis und Wortfindung bleiben erhalten (das unterscheidet sie von einer Aphasie). Dysarthrie ist ein Symptom; ihre Ursache muss neurologisch geklärt werden, z.&nbsp;B. Schlaganfall, Parkinson, Multiple Sklerose, ALS, Kleinhirnerkrankung, Schädel-Hirn-Trauma oder frühkindliche Hirnschädigung. Bei EA2 tritt sie während der Attacken auf. Bei Autismus, ADHS oder Dyspraxie ist eine Dysarthrie dagegen nicht typisch; dort gibt es andere Sprechbesonderheiten (siehe unten).</p>
+  <div class="tbl-wrap">
+    <table class="cmp">
+      <thead><tr><th scope="col">Form</th><th scope="col">Typischer Klang</th><th scope="col">Typische Ursachen</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Schlaff</th><td>Behaucht, schwach, näselnd, kurzatmig</td><td>Hirnnerven, Hirnstamm, Muskel (z.&nbsp;B. Myasthenie)</td></tr>
+        <tr><th scope="row">Spastisch</th><td>Gepresst, angestrengt, langsam, monoton</td><td>Beidseitige Schädigung der Pyramidenbahn (z.&nbsp;B. nach mehreren Schlaganfällen)</td></tr>
+        <tr><th scope="row">Ataktisch</th><td>Skandierend, ungleichmäßig, wechselnd laut, „wie betrunken“</td><td>Kleinhirn (z.&nbsp;B. EA2 im Anfall, SCA, MS)</td></tr>
+        <tr><th scope="row">Hypokinetisch</th><td>Leise, monoton, teils beschleunigt, verwaschen</td><td>Parkinson-Erkrankungen</td></tr>
+        <tr><th scope="row">Hyperkinetisch</th><td>Unregelmäßig durch unwillkürliche Bewegungen</td><td>Chorea Huntington, Dystonien</td></tr>
+        <tr><th scope="row">Gemischt</th><td>Mehrere Muster zugleich</td><td>ALS, Multiple Sklerose, Schädel-Hirn-Trauma</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="stack">
+    <div class="group" data-group="da-stimme"></div>
+    <div class="group" data-group="da-artik"></div>
+    <div class="group" data-group="da-begleit"></div>
+    <div class="group" data-radio="da-verlauf"></div>
+    <div class="group" data-group="da-entw"></div>
+  </div>
+  <div class="result" data-result="dysarthrie"></div>
+  <div class="card key">
+    <h3>Sprechen bei Autismus, ADHS und Dyspraxie</h3>
+    <p class="prose"><strong>Autismus:</strong> Eine Dysarthrie ist nicht häufiger. In einer Studie mit 42 sprechenden autistischen Kindern erfüllte keines die Kriterien einer Dysarthrie oder Sprechapraxie; eine weitere Studie mit 46 Kindern fand ebenfalls keine Hinweise auf eine Sprechapraxie. Gut belegt ist dagegen eine andere Sprachmelodie (Prosodie): Betonung, Phrasierung und Klang wirken ungewöhnlich. Akustisch liegt die Tonhöhe im Mittel höher und schwankt stärker, auch wenn das oft als „monoton“ beschrieben wird. Autistische Jugendliche und Erwachsene bilden außerdem häufiger einzelne Laute ungenau (z.&nbsp;B. s oder r). Die Forschenden deuten das eher als Teil der sozialen Kommunikation, also wie stark man sich der Sprechweise der Umgebung anpasst, nicht als Störung der Sprechmotorik. Nur bei Autist:innen, die kaum oder gar nicht sprechen, sind Störungen der Sprechmotorik häufiger. Viele Autist:innen beschreiben außerdem, bei Überlastung zeitweise kaum oder gar nicht sprechen zu können (situativer Mutismus, Shutdown); systematische Studien dazu gibt es noch kaum.</p>
+    <p class="prose"><strong>ADHS:</strong> Gehäuft beschrieben ist Poltern, eine Redeflussstörung: sehr schnelles, unregelmäßiges Tempo, verschluckte Silben, Verhaspeln und Neuansätze. Junge Erwachsene mit ADHS zeigen zudem feine Unterschiede in der Sprechmotorik. Beides ist keine Dysarthrie.</p>
+    <p class="prose"><strong>Dyspraxie (UEMF):</strong> Kinder mit UEMF steuern komplexe Sprechbewegungen weniger präzise. Umgekehrt erfüllen die meisten Kinder mit einer kindlichen Sprechapraxie auch die Kriterien einer UEMF. Die Studien dazu sind klein.</p>
+    <p class="prose"><strong>EA2:</strong> Während der Attacken entsteht eine echte, ataktische Dysarthrie (verwaschen, ungleichmäßig betont), die danach wieder abklingt. Siehe Reiter <a href="/ataxie">Ataxie Typ 2</a>.</p>
+    <ul class="plain fine">
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6633911">Shriberg et al. (2019): Prevalence of speech and motor speech disorders in persons with complex neurodevelopmental disorders. Clin Linguist Phon</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3033475">Shriberg et al. (2011): The hypothesis of apraxia of speech in children with autism spectrum disorder. J Autism Dev Disord</a></li>
+      <li><a href="https://doi.org/10.1044/1092-4388(2001/087)">Shriberg et al. (2001): Speech and prosody characteristics of adolescents and adults with high-functioning autism and Asperger syndrome. JSLHR</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8630064">Asghari et al. (2021): Distinctive prosodic features of people with autism spectrum disorder: a meta-analysis. Sci Rep</a></li>
+      <li><a href="https://doi.org/10.1002/aur.1678">Fusaroli et al. (2017): Is voice a marker for autism spectrum disorder? Autism Res</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8837193">Chenausky et al. (2019): Motor speech impairment predicts expressive language in minimally verbal individuals with ASD. Autism Dev Lang Impair</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12371732">Fidan &amp; Sarıyer (2025): Cluttering and working memory in children and adolescents with ADHD. Psychiatry Clin Psychopharmacol</a></li>
+      <li><a href="https://pure.psu.edu/en/publications/speech-motor-control-and-orofacial-point-pressure-sensation-in-ad/">Etter et al.: Speech motor control and orofacial point pressure sensation in adults with ADHD. Neurosci Lett</a></li>
+      <li><a href="https://doi.org/10.1016/j.humov.2010.01.007">Ho &amp; Wilmut (2010): Speech and oro-motor function in children with developmental coordination disorder. Hum Mov Sci</a></li>
+      <li><a href="https://doi.org/10.1044/2022_LSHSS-21-00163">Iuzzini-Seigel et al. (2022): Developmental coordination disorder characteristics in children with childhood apraxia of speech. LSHSS</a></li>
+      <li><a href="https://www.leicspart.nhs.uk/autism-space/relationships/autism-and-situational-mutism/">NHS Leicestershire Partnership: Autism and situational mutism</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>So läuft die Diagnostik</h3>
+    <p class="prose">Neurologie zur Klärung der Ursache, Logopädie bzw. Sprachtherapie für Befund und Therapie. Gängige Verfahren sind die Bogenhausener Dysarthrieskalen (BoDyS), das Frenchay Dysarthrie-Assessment (FDA-2) und das Münchner Verständlichkeits-Profil (MVP). Bei Verschlucken gehört eine Schluckdiagnostik dazu. Abzugrenzen sind Sprechapraxie (Planung der Sprechbewegung), Aphasie (Sprache selbst), Dysglossie (Schäden an Zähnen, Gaumen, Zunge), Poltern (Redeflussstörung, ICD-10 F98.6) und Artikulationsstörungen seit der Kindheit (F80.0).</p>
+  </div>
+  <div class="result gesamt" data-gesamt="dysarthrie"></div>
+</section>
+
+<!-- ============ TESTS ============ -->
+<section class="view" id="tests" aria-labelledby="h-tests">
+  <h2 id="h-tests">Standardisierte Tests im Überblick</h2>
+  <p class="prose">Eingebaut sind nur Tests, deren Rechteinhaber die freie, unveränderte Nutzung erlauben. Ergebnisse der übrigen Tests kannst du im jeweiligen Reiter unter „Standardisierte Fragebögen“ eintragen; sie fließen ins Gesamtbild ein. Alle Schwellenwerte sind Screening-Grenzen: Sie zeigen, ob eine Abklärung sinnvoll ist, und stellen keine Diagnose.</p>
+  <div class="tbl-wrap">
+    <table class="cmp">
+      <thead><tr><th scope="col">Test</th><th scope="col">Bereich</th><th scope="col">Umfang</th><th scope="col">Auswertung</th><th scope="col">Verfügbarkeit</th></tr></thead>
+      <tbody>
+        <tr data-area="adhs"><th scope="row">ASRS-v1.1 Screener</th><td>ADHS, Erwachsene</td><td>6 Fragen, letzte 6 Monate</td><td>Ab 4 Antworten im dunkel schattierten Bereich auffällig</td><td><a href="/adhs">Hier eingebaut</a> (Originalwortlaut) · <a href="https://www.hcp.med.harvard.edu/ncs/ftpdir/adhd/6Q_German_final.pdf">deutsche Fassung (PDF)</a></td></tr>
+        <tr data-area="adhs"><th scope="row">ASRS-v1.1 Symptom-Checkliste</th><td>ADHS</td><td>18 Fragen</td><td>Profil der 18 DSM-Symptome</td><td>Lizenz über NYU, <a href="https://www.hcp.med.harvard.edu/ncs/asrs.php">Harvard NCS</a></td></tr>
+        <tr data-area="adhs"><th scope="row">WURS-K</th><td>ADHS in der Kindheit, rückblickend</td><td>25 Aussagen (21 gewertet)</td><td>Ab 30 Punkten auffällig</td><td>Über Fachpersonen</td></tr>
+        <tr data-area="adhs"><th scope="row">DIVA-5</th><td>ADHS, strukturiertes Interview</td><td>Interview zu Kindheit und heute</td><td>Kriterien nach DSM-5</td><td>Für Fachpersonen, <a href="https://www.divacenter.eu">divacenter.eu</a></td></tr>
+        <tr data-area="autismus"><th scope="row">AQ-10</th><td>Autismus, ab 16 Jahren</td><td>10 Aussagen</td><td>Ab 6 Punkten Abklärung erwägen</td><td><a href="https://www.autismresearchcentre.com/tests/">Autism Research Centre</a> (nur unverändert, nicht kommerziell)</td></tr>
+        <tr data-area="autismus"><th scope="row">AQ (50)</th><td>Autismus</td><td>50 Aussagen</td><td>Ab 32 deutlich erhöht; ab etwa 26 klinisch beachtenswert</td><td><a href="https://www.autismresearchcentre.com/tests/">Autism Research Centre</a></td></tr>
+        <tr data-area="autismus"><th scope="row">RAADS-R</th><td>Autismus, Erwachsene</td><td>80 Aussagen</td><td>Ab 65 Punkten vereinbar mit Autismus</td><td>Über Fachpersonen; online (englisch) z.&nbsp;B. bei <a href="https://embrace-autism.com">Embrace Autism</a></td></tr>
+        <tr data-area="autismus"><th scope="row">CAT-Q</th><td>Masking / Camouflaging</td><td>25 Aussagen</td><td>Kein offizieller Schwellenwert</td><td>Online (englisch) z.&nbsp;B. bei <a href="https://embrace-autism.com">Embrace Autism</a></td></tr>
+        <tr data-area="depression"><th scope="row">PHQ-9</th><td>Depression</td><td>9 + 1 Fragen, letzte 2 Wochen</td><td>Ab 5 / 10 / 15 / 20 Punkten leicht bis schwer; ab 10 auffällig</td><td><a href="/depression">Hier eingebaut</a></td></tr>
+        <tr data-area="depression"><th scope="row">WHO-5</th><td>Wohlbefinden</td><td>5 Aussagen, letzte 2 Wochen</td><td>Rohwert unter 13 → Depressionsscreening empfohlen</td><td><a href="/depression">Hier eingebaut</a></td></tr>
+        <tr data-area="bipolar"><th scope="row">MDQ</th><td>Bipolare Störung</td><td>13 + 2 Fragen</td><td>Mindestens 7 × Ja, gleichzeitig aufgetreten, mindestens mittlere Probleme</td><td>Über Fachpersonen</td></tr>
+        <tr data-area="bipolar"><th scope="row">HCL-32</th><td>Hypomanie</td><td>32 Aussagen</td><td>Ab 14 Ja-Antworten auffällig</td><td>Über Fachpersonen</td></tr>
+        <tr data-area="alexithymie"><th scope="row">TAS-20 / TAS-26</th><td>Alexithymie</td><td>20 bzw. 26 Aussagen</td><td>TAS-20: ab 61 alexithym, 52–60 grenzwertig</td><td>Über Fachpersonen; TAS-20 online (englisch) z.&nbsp;B. bei <a href="https://embrace-autism.com">Embrace Autism</a></td></tr>
+        <tr data-area="alexithymie"><th scope="row">PAQ</th><td>Alexithymie</td><td>24 Aussagen</td><td>Vergleich mit Normwerten</td><td>Über die Autor:innen (Preece et al.)</td></tr>
+        <tr data-area="dyspraxie"><th scope="row">MABC-2 · DCDQ · ADC</th><td>Dyspraxie</td><td>Motoriktest (Kinder) · Elternfragebogen (5–15 J.) · Erwachsenen-Checkliste</td><td>MABC-2: bis 5. Perzentile deutlich, 6.–15. Risikobereich</td><td>Ergotherapie, Fachpersonen</td></tr>
+        <tr data-area="dysarthrie"><th scope="row">BoDyS · FDA-2 · MVP</th><td>Dysarthrie</td><td>Logopädische Verfahren</td><td>Fachbefund</td><td>Logopädie</td></tr>
+        <tr data-area="migraene"><th scope="row">ID Migraine</th><td>Migräne, Screening</td><td>3 Fragen, letzte 3 Monate</td><td>Ab 2 Ja-Antworten positiv</td><td>Frei veröffentlicht, z.&nbsp;B. <a href="https://www.aafp.org/pubs/afp/issues/2006/1215/p2087.html">AAFP</a> (englisch)</td></tr>
+        <tr data-area="migraene"><th scope="row">MIDAS</th><td>Beeinträchtigung durch Kopfschmerzen</td><td>5 Fragen, letzte 3 Monate</td><td>Grad I–IV; ab 21 schwere Beeinträchtigung</td><td>Frei; deutsche Fassung z.&nbsp;B. <a href="https://neurologie.meduniwien.ac.at/fileadmin/content/OE/neurologie/dokumente/MIDAS.pdf">MedUni Wien</a> (PDF)</td></tr>
+        <tr data-area="migraene"><th scope="row">HIT-6</th><td>Auswirkung von Kopfschmerzen</td><td>6 Fragen</td><td>36–78 Punkte; ab 60 schwere Auswirkung</td><td>Lizenzpflichtig (QualityMetric)</td></tr>
+        <tr data-area="migraene"><th scope="row">ASC-12</th><td>Allodynie bei Migräne</td><td>12 Fragen</td><td>Ab 3 leichte, ab 9 schwere Allodynie</td><td><a href="https://headaches.org/wp-content/uploads/2025/06/ASC-12-Allodynia-Checklist.pdf">National Headache Foundation</a> (PDF, englisch)</td></tr>
+        <tr data-area="migraene"><th scope="row">Kopfschmerzkalender</th><td>Migräne, Spannungskopfschmerz, Medikamentenübergebrauch</td><td>4 bis 8 Wochen täglich</td><td>Kopfschmerz- und Medikamententage, Dauer, Begleitsymptome</td><td><a href="https://www.dmkg.de/patienten/dmkg-kopfschmerzkalender">DMKG</a> (PDF und App)</td></tr>
+        <tr data-area="ataxie"><th scope="row">EA2</th><td>Episodische Ataxie</td><td>Kein Fragebogen</td><td>Attackenprotokoll, Video, Gentest</td><td>Neurologie</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" id="results-list"></div>
+</section>
+
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Selbstbild</strong> dient der Information und Selbstreflexion. Es stellt keine Diagnose und ersetzt keine ärztliche oder psychotherapeutische Abklärung.</p>
+    <p><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a> · <a href="https://github.com/carstenjaksch/selbstbild" rel="noopener">Quellcode auf GitHub</a></p>
+  </div>
+</footer>
+<p class="sr-only" id="ansage" aria-live="polite"></p>
+</body>
+</html>
