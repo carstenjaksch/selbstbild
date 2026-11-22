@@ -18,13 +18,17 @@ Konzept: `docs/superpowers/specs/2026-11-22-selbstbild-design.md`, Plan: `docs/s
 - **Speichern (`public/js/speicher.js`):** lokal sofort (`localStorage`, Präfix `selbstbild:`; `lokal`, `s:<uuid>`,
   `zuletzt`), Server nur nach Zustimmung (Art. 9 DSGVO). Abgleich nach `stand` (neuerer gewinnt, 409 = Server neuer).
   Fehlschläge → Wiederholung 15 s, 1, 5, 15, 30 min; 429 = Tageslimit → 30 min. Startadresse ohne `#` öffnet den
-  zuletzt genutzten Stand. Popup am farbigen Punkt: Zustimmung, Link, Export/Import, Löschen (zweistufig).
+  zuletzt genutzten Stand. Popup am farbigen Punkt: Zustimmung, Link, Export/Import, „Vom Server löschen“ (zweistufig). Kein lokales
+  Löschen: lokal wird nicht eingewilligt, also kein Opt-out (Carsten, 22.11.2026). Zustimmungstext nennt „anonyme
+  Angaben zu deiner Gesundheit“ und „keine persönlichen Daten wie Name, E-Mail- oder IP-Adresse gespeichert“
+  (bewusst „gespeichert“, nicht „erhoben“: Cloudflare verarbeitet IPs technisch beim Ausliefern).
 - **Navigation:** Bereiche sind Pfade (`/adhs`, `/tests`, `/`), History-API; der `#`-Teil gehört der UUID.
   Interne Links in HTML und Daten deshalb immer `/bereich`, nie `#bereich`.
 - **Eingaben (`app.js`):** `S` ist ein flaches Objekt aus Zahlen. Schlüssel: Checklisten `gruppe.i` (1/0.5),
   Tests `t.*`, Radios `r.*`, externe Tests `x.*`/`xc.*`, ausgeblendet `h.<bereich>` (0/1), Reihenfolge
   `o.<bereich>` (Position). `validKey` prüft alles (mit `hasOwnProperty`, wegen `constructor.0` u. ä.).
-- Standard ausgeblendet: Alexithymie, Ataxie, Dyskalkulie, Dyspraxie, Dysarthrie.
+- Standard ausgeblendet: Alexithymie, Ataxie, Dyskalkulie, Dyspraxie, Dysarthrie. Das Häkchen an der Kachel heißt
+  „ausblenden“/„ausgeblendet“ (nicht „abhaken“, das meint die Merkmale der Checklisten).
 
 ## Regeln
 

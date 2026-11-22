@@ -180,13 +180,6 @@ async function vomServerLoeschen(){
   meldung('Der Stand ist vom Server gelöscht, deine Zustimmung damit widerrufen. Deine Antworten liegen weiter in diesem Browser.');
   zeichnen();
 }
-function lokalLoeschen(){
-  try { Object.keys(localStorage).filter(k => k.startsWith(P)).forEach(k => localStorage.removeItem(k)); } catch (e) {}
-  stand = 0; synced = 0; nurLokal = false; gefragt = false; hinweis = '';
-  app.setzen({});
-  meldung('Alle Antworten in diesem Browser sind gelöscht.');
-  zeichnen();
-}
 function exportieren(){
   const datei = { format: 'selbstbild', version: 1, exportiert: new Date().toISOString(), stand: stand ? new Date(stand).toISOString() : null, antworten: app.holen() };
   const url = URL.createObjectURL(new Blob([JSON.stringify(datei, null, 1)], { type: 'application/json' }));
@@ -244,7 +237,7 @@ function baueUi(){
   <div class="sp-frage" id="sp-frage">
     <p><strong>Verschlüsselt auf dem Server speichern?</strong> Dann kommst du über deinen persönlichen Link auch von anderen Geräten an deine Antworten.</p>
     <div class="sp-knoepfe"><button type="button" class="btn" data-sp="ja">Ja, verschlüsselt speichern</button><button type="button" class="btn ghost" data-sp="lokal" id="sp-nur-lokal">Nur in diesem Browser</button></div>
-    <p class="fine">Mit „Ja“ willigst du ein, dass deine Antworten, also Angaben zu deiner Gesundheit, verschlüsselt auf dem Server gespeichert werden. Du kannst das jederzeit hier mit „Vom Server löschen“ widerrufen. <a href="/datenschutz">Datenschutzerklärung</a></p>
+    <p class="fine">Mit „Ja“ willigst du ein, dass deine Antworten als anonyme Angaben zu deiner Gesundheit verschlüsselt auf dem Server gespeichert werden. Persönliche Daten wie Name, E-Mail- oder IP-Adresse werden dabei nicht gespeichert. Du kannst das jederzeit hier mit „Vom Server löschen“ widerrufen. <a href="/datenschutz">Datenschutzerklärung</a></p>
   </div>
   <div id="sp-linkbox" hidden>
     <label for="sp-link"><strong>Dein persönlicher Link</strong></label>
@@ -255,7 +248,7 @@ function baueUi(){
     <li><strong>Lokal:</strong> Jede Änderung liegt sofort in diesem Browser.</li>
     <li><strong>Server:</strong> nur mit deiner Zustimmung, bei Cloudflare mit Rechenzentrum in der EU. Verschlüsselt wird schon in deinem Browser (AES-256). Der Schlüssel steckt nur in deinem Link hinter dem #-Zeichen und wird nie übertragen.</li>
     <li><strong>Aufbewahrung:</strong> Nach 24 Monaten ohne Änderung wird der Stand auf dem Server automatisch gelöscht.</li>
-    <li><strong>Server nicht erreichbar?</strong> Dann bleibt der Stand lokal und wird automatisch nachgereicht, sobald es wieder geht. Das kann bis zu einem Tag dauern; öffne die Seite dafür einfach noch einmal.</li>
+    <li><strong>Server nicht erreichbar?</strong> Dann bleibt der Stand lokal und wird automatisch nachgereicht, sobald es wieder geht. Wegen des kostenlosen Cloudflare-Hostings mit Tageskontingent kann das bis zu einem Tag dauern; öffne die Seite dafür einfach noch einmal.</li>
   </ul>
   <dl class="sp-legende" aria-label="Bedeutung der Farben">
     <dt><span class="sp-dot" data-ort="server"></span></dt><dd>Letzter Stand liegt auf dem Server (und in diesem Browser)</dd>
@@ -268,7 +261,6 @@ function baueUi(){
     <button type="button" class="btn ghost" data-sp="import">Importieren</button>
     <input type="file" id="sp-datei" accept=".json,application/json" hidden>
     <button type="button" class="btn ghost" data-sp="server-loeschen" id="sp-server-loeschen" hidden>Vom Server löschen</button>
-    <button type="button" class="btn ghost" data-sp="lokal-loeschen" id="sp-lokal-loeschen">Lokal löschen</button>
   </div>
   <div class="sp-import" id="sp-import" hidden>
     <p id="sp-import-text"></p>
@@ -293,7 +285,7 @@ function baueUi(){
     else if (was === 'import') $('sp-datei').click();
     else if (was === 'import-ja') importUebernehmen();
     else if (was === 'import-nein') { importVorschlag = null; $('sp-import').hidden = true; meldung('Import abgebrochen.'); }
-    else if (was === 'server-loeschen' || was === 'lokal-loeschen') zweistufig(b, was === 'server-loeschen' ? vomServerLoeschen : lokalLoeschen);
+    else if (was === 'server-loeschen') zweistufig(b, vomServerLoeschen);
   });
 }
 /* Löschen erst beim zweiten Klick */
@@ -333,9 +325,9 @@ function statusText(o){
     ? ['Nur in diesem Browser gespeichert', 'Stand ' + t + '. Du hast „Nur in diesem Browser“ gewählt.']
     : ['In diesem Browser gespeichert', 'Stand ' + t + '. Auf den Server kommt er erst mit deiner Zustimmung.'];
   if (netz === 'sendet') return ['In diesem Browser gespeichert', 'Stand ' + t + ', wird gerade verschlüsselt übertragen …'];
-  if (netz === 'limit') return ['Nur in diesem Browser gespeichert', 'Stand ' + t + '. Das kostenlose Tageskontingent des Servers ist erschöpft. Der Stand wird automatisch nachgereicht, das kann bis zu einem Tag dauern.'];
+  if (netz === 'limit') return ['Nur in diesem Browser gespeichert', 'Stand ' + t + '. Das Tageskontingent des kostenlosen Cloudflare-Hostings ist erschöpft. Der Stand wird automatisch nachgereicht, das kann bis zu einem Tag dauern.'];
   if (netz === 'fehler') return ['Nur in diesem Browser gespeichert', 'Stand ' + t + '. ' + fehlerText];
-  if (netz === 'offline') return ['Nur in diesem Browser gespeichert', 'Stand ' + t + '. Der Server ist gerade nicht erreichbar.' + wann + ' Ist die Seite dann zu, wird der Stand beim nächsten Öffnen nachgereicht.'];
+  if (netz === 'offline') return ['Nur in diesem Browser gespeichert', 'Stand ' + t + '. Der Server ist gerade nicht erreichbar.' + wann + ' Ist die Seite dann zu, wird der Stand beim nächsten Öffnen nachgereicht. Wegen des kostenlosen Cloudflare-Hostings kann das bis zu einem Tag dauern.'];
   return ['In diesem Browser gespeichert', 'Stand ' + t + ', wird gleich übertragen.'];
 }
 const KURZ = { leer: 'Nicht gespeichert', lokal: 'Lokal', server: 'Server', fehler: 'Fehler' };
@@ -354,5 +346,4 @@ function zeichnen(){
   $('sp-linkbox').hidden = !uuid;
   if (uuid) $('sp-link').value = location.origin + '/#' + uuid;
   $('sp-server-loeschen').hidden = !uuid;
-  $('sp-lokal-loeschen').hidden = !!uuid;
 }

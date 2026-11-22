@@ -44,7 +44,7 @@ Stand 22.11.2026 · Verantwortlicher: Carsten Jaksch, Sudetenstraße 40, 61184 K
 | Rechtsgrundlage | § 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich) |
 | Daten | Antworten, Ausblenden/Reihenfolge, persönlicher Link; bleiben auf dem Endgerät |
 | Empfänger | keine |
-| Löschfrist | durch Nutzer:innen („Lokal löschen“, Browser-Einstellungen) |
+| Löschfrist | durch Nutzer:innen über die Browser-Einstellungen |
 
 ## Technische und organisatorische Maßnahmen
 

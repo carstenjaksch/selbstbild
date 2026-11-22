@@ -567,11 +567,11 @@ function tileHtml(c, aus){
   +'<div class="tile-top"><h3><a class="tile-link" href="/'+c.id+'">'+esc(c.title)+'</a></h3>'
   +'<button type="button" class="tile-griff" data-griff="'+c.id+'" aria-label="'+esc(c.title)+' verschieben" aria-describedby="griff-hilfe" title="Ziehen oder mit den Pfeiltasten verschieben">'+GRIFF+'</button></div>'
   +'<p>'+esc(c.desc)+'</p>'+note+'<div class="meta">'+meta+'</div>'
-  +'<label class="tile-hide"><input type="checkbox" data-hide="'+c.id+'"'+(aus?' checked':'')+'>'+(aus?'abgehakt':'abhaken')+'<span class="sr-only">: '+esc(c.title)+(aus?' wieder einblenden':' ausblenden')+'</span></label></div>';
+  +'<label class="tile-hide"><input type="checkbox" data-hide="'+c.id+'"'+(aus?' checked':'')+'>'+(aus?'ausgeblendet':'ausblenden')+'<span class="sr-only">: '+esc(c.title)+'</span></label></div>';
 }
 function paintTiles(){
  const ord=areaOrder(), vis=ord.filter(id=>!isHidden(id)), aus=ord.filter(id=>isHidden(id));
- document.getElementById('tiles').innerHTML = vis.length ? vis.map(id=>tileHtml(cardOf(id),false)).join('') : '<p class="fine">Alle Bereiche sind abgehakt. Du findest sie unter „Ausgeblendet“.</p>';
+ document.getElementById('tiles').innerHTML = vis.length ? vis.map(id=>tileHtml(cardOf(id),false)).join('') : '<p class="fine">Alle Bereiche sind ausgeblendet. Du findest sie unter „Ausgeblendet“.</p>';
  document.getElementById('tiles-aus').innerHTML = aus.map(id=>tileHtml(cardOf(id),true)).join('');
  document.getElementById('ausgeblendet').hidden = !aus.length;
  document.getElementById('ausgeblendet-n').textContent = '('+aus.length+')';
@@ -774,7 +774,7 @@ function paintGesamtTable(){
    +'<td>'+pillHtml(g.lv,g.pill)+'</td></tr>';
  });
  el.innerHTML='<h3>Gesamtbild</h3><p class="fine">Fasst je Bereich den Symptomfragebogen und die standardisierten Fragebögen zusammen. Alle Quellen zählen gleich; keine Diagnose.</p>'
-  +(areas.length ? '<div class="tbl-wrap"><table class="gtab"><thead><tr><th scope="col">Bereich</th><th scope="col">Symptomfragebogen</th><th scope="col">Standardisierte Fragebögen</th><th scope="col">Gesamt</th></tr></thead><tbody>'+rows+'</tbody></table></div>' : '<p class="fine">Alle Bereiche sind abgehakt.</p>')
+  +(areas.length ? '<div class="tbl-wrap"><table class="gtab"><thead><tr><th scope="col">Bereich</th><th scope="col">Symptomfragebogen</th><th scope="col">Standardisierte Fragebögen</th><th scope="col">Gesamt</th></tr></thead><tbody>'+rows+'</tbody></table></div>' : '<p class="fine">Alle Bereiche sind ausgeblendet.</p>')
   +(aus.length ? '<p class="fine">Ausgeblendet: '+aus.map(a=>esc(a.title)).join(', ')+'.</p>' : '');
 }
 function paintResultsList(){
@@ -824,7 +824,7 @@ function addBanners(){
  CARDS.forEach(c=>{
   const sec=document.getElementById(c.id); if(!sec || sec.querySelector('[data-banner]')) return;
   const d=document.createElement('div'); d.className='hidden-banner'; d.dataset.banner=c.id; d.hidden=true;
-  d.innerHTML='<span>Dieser Bereich ist abgehakt und fehlt deshalb in Navigation und Gesamtbild.</span><button type="button" class="btn ghost" data-unhide="'+c.id+'">Wieder einblenden</button>';
+  d.innerHTML='<span>Dieser Bereich ist ausgeblendet und fehlt deshalb in Navigation und Gesamtbild.</span><button type="button" class="btn ghost" data-unhide="'+c.id+'">Wieder einblenden</button>';
   sec.insertBefore(d, sec.children[1] || null);
  });
 }
@@ -833,7 +833,7 @@ function addBanners(){
 function changed(){ speicher.geaendert(); }
 function setHidden(id, hide){
  S['h.'+id]=hide?1:0; changed(); update();
- ansage(cardOf(id).title+(hide?' abgehakt und ausgeblendet.':' wieder eingeblendet.'));
+ ansage(cardOf(id).title+(hide?' ausgeblendet.':' wieder eingeblendet.'));
  const det=document.getElementById('ausgeblendet'), cb=document.querySelector('input[data-hide="'+id+'"]');
  if(hide && !det.open) det.querySelector('summary').focus();
  else if(cb && !cb.closest('[hidden]')) cb.focus();

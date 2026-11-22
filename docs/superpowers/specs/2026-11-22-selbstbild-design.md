@@ -32,8 +32,9 @@ Betreiber ist Carsten privat (kein Gewerbe, keine Werbung).
 6. **Wiederaufnahme:** Die Startadresse ohne `#` öffnet den zuletzt in diesem Browser genutzten Stand.
 7. **Import/Export:** JSON-Datei mit den Antworten, Import wird streng geprüft (nur bekannte Schlüssel,
    nur Zahlen). Kein Upload, die Datei wird nur im Browser gelesen.
-8. **Löschen:** „Vom Server löschen“ (Widerruf der Zustimmung) und „Lokale Daten löschen“ im
-   Speicher-Fenster. Kein „Neu beginnen“, kein „Lesezeichen“-Knopf.
+8. **Löschen:** nur „Vom Server löschen“ (Widerruf der Zustimmung) im Speicher-Fenster. Lokal wird nicht
+   eingewilligt, also gibt es dort kein Opt-out (Löschen über die Browser-Einstellungen). Kein „Neu beginnen“,
+   kein „Lesezeichen“-Knopf.
 9. **Aufbewahrung:** Datensätze, die 24 Monate nicht geändert wurden, löscht ein täglicher Cron-Job.
 
 ## Speicher-Punkt
@@ -46,7 +47,7 @@ Löschen und Link zur Datenschutzerklärung. Eine Zeile im Kopf der Seite fasst 
 
 ## Übersicht
 
-- Jede Kachel hat einen Haken „abhaken“. Abgehakte Bereiche wandern in ein aufklappbares „Ausgeblendet (n)“
+- Jede Kachel hat ein Häkchen „ausblenden“. Ausgeblendete Bereiche wandern in ein aufklappbares „Ausgeblendet (n)“
   und lassen sich dort öffnen oder wieder einblenden.
 - Ausgeblendete Bereiche fehlen in Navigation, Gesamtbild, Einleitungssatz, Testtabelle und
   „Deine Testergebnisse“. Wer einen ausgeblendeten Bereich per Link öffnet, sieht ein Banner
