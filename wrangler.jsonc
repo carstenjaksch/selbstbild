@@ -14,7 +14,7 @@
   },
   // Datenbank fest in der EU: wrangler d1 create selbstbild --jurisdiction=eu
   "d1_databases": [
-    { "binding": "DB", "database_name": "selbstbild", "database_id": "00000000-0000-0000-0000-000000000000" }
+    { "binding": "DB", "database_name": "selbstbild", "database_id": "7b669ac1-d355-4239-ab84-730d0a718e65" }
   ],
   // Täglich: Stände löschen, die 24 Monate nicht geändert wurden
   "triggers": { "crons": ["17 3 * * *"] },
