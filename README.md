@@ -4,7 +4,7 @@
 Migräne, Alexithymie, episodische Ataxie Typ 2, Dyskalkulie, Dyspraxie und Dysarthrie. Kriterien nach ICD-10-GM,
 ICD-11 und DSM-5-TR (sinngemäß), Checklisten, eingebaute Kurztests (ASRS-v1.1, PHQ-9, WHO-5) und ein Gesamtbild.
 
-**Live:** <https://selbstbild.jaksch.workers.dev>
+**Live:** derzeit offline
 
 > **Keine Diagnose.** Selbstbild dient der Information und Selbstreflexion. Es ersetzt keine ärztliche oder
 > psychotherapeutische Abklärung.

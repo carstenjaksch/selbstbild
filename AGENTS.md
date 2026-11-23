@@ -2,7 +2,9 @@
 
 Öffentliche Fassung des claude.ai-Artefakts „Diagnosekriterien & Selbsttests“ (`Q3DTfzcjDNrTZtdZCQgXHd`).
 Privates Projekt von Carsten Jaksch. Repo `carstenjaksch/selbstbild` (öffentlich, MIT),
-live `https://selbstbild.jaksch.workers.dev` (privates Cloudflare-Konto, Subdomain `jaksch.workers.dev`).
+Adresse `https://selbstbild.jaksch.workers.dev` (privates Cloudflare-Konto, Subdomain `jaksch.workers.dev`).
+**Seit 23.11.2026 vorerst offline** (Carsten): `workers_dev: false` in `wrangler.jsonc`, die Adresse liefert
+Cloudflare-Fehler 1042. Worker, D1 und Cron laufen weiter. Wieder öffentlich: `workers_dev: true`, pushen (oder `npm run deploy`).
 Konzept: `docs/superpowers/specs/2026-11-22-selbstbild-design.md`, Plan: `docs/superpowers/plans/2026-11-22-selbstbild.md`.
 
 ## Architektur
@@ -65,7 +67,8 @@ npm run deploy           # wrangler deploy (nur nötig, wenn Workers Builds ausf
 
 **Deploy:** Workers Builds ist mit `carstenjaksch/selbstbild` verbunden (Cloudflare-GitHub-App nur für dieses
 Repo). Jeder Push auf `main` baut und veröffentlicht (`npx wrangler deploy`, kein Build-Befehl), Vorschau-Builds
-für andere Branches sind aus. Schema-Änderungen an D1 laufen nicht automatisch mit: vorher `npm run db:remote`
+für andere Branches sind aus. Jeder Deploy übernimmt `workers_dev` aus `wrangler.jsonc`: steht dort `true`, ist die
+Seite sofort wieder öffentlich. Schema-Änderungen an D1 laufen nicht automatisch mit: vorher `npm run db:remote`
 (bzw. eine Migration) ausführen. Build-Status: Cloudflare-Dashboard → Worker `selbstbild` → Bereitstellungen.
 
 ## Prüfen (vor jedem Deploy)
